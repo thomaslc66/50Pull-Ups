@@ -1,0 +1,45 @@
+<!-- [ Mirror metadata ] generatedAt: 1434236190298 -->
+<!-- Generated screen file. Fill the id tags below with content with
+which to populate your previewed layout. For a complete specification
+of sample data, please see http://jimulabs.com/sample-data-specifications/ 
+
+Valid attributes on <screen> tag: theme="@style/someTheme" inEditMode="false" overlay="@drawable/mockup" -->
+<screen>
+    <_content layout="@layout/activity_accueil">
+        <!-- ImageView Examples:
+        <footer_bg src="@drawable/image_resource" />
+        <footer_bg src="relative_path/image.jpg" /> -->
+        <footer_bg />
+        <rectangle_center />
+        <topRectangle />
+        <!-- TextView Examples:
+        <txtview_nbrtotal text="@string/string_resource" />
+        <txtview_nbrtotal text="Text literal" textSize="14sp" /> -->
+        <txtview_nbrtotal />
+        <left_drawer>
+            <items layout="@android:layout/simple_list_item_1" >
+                <_item>
+                    <text1>Vancouver</text1>
+                </_item>
+                <_item>
+                    <text1>Cairo</text1>
+                </_item>
+                <_item>
+                    <text1>New York</text1>
+                </_item>
+                <_item>
+                    <text1>San Francisco</text1>
+                </_item>
+                <_item>
+                    <text1>Seattle</text1>
+                </_item>
+                <_item>
+                    <text1>Hong Kong</text1>
+                </_item>
+                <_item>
+                    <text1>Tokyo</text1>
+                </_item>
+            </items>
+                </left_drawer>
+    </_content>
+</screen>

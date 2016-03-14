@@ -1,0 +1,216 @@
+[
+    {
+        "outputFile": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\build\\intermediates\\res\\merged\\release\\values-ka-rGE\\values-ka-rGE.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 104,
+                    "endOffset": 205
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-ka-rGE\\strings.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1302,
+                        "endColumn": 104,
+                        "endOffset": 1402
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 210,
+                    "endColumn": 111,
+                    "endOffset": 317
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-ka-rGE\\strings.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 4,
+                        "startOffset": 1810,
+                        "endColumn": 115,
+                        "endOffset": 1921
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 322,
+                    "endColumn": 82,
+                    "endOffset": 400
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-ka-rGE\\strings.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 809,
+                        "endColumn": 82,
+                        "endOffset": 887
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 405,
+                    "endColumn": 111,
+                    "endOffset": 512
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-ka-rGE\\strings.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 892,
+                        "endColumn": 111,
+                        "endOffset": 999
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 517,
+                    "endColumn": 118,
+                    "endOffset": 631
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-ka-rGE\\strings.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 4,
+                        "startOffset": 1687,
+                        "endColumn": 122,
+                        "endOffset": 1805
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 636,
+                    "endColumn": 112,
+                    "endOffset": 744
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-ka-rGE\\strings.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1004,
+                        "endColumn": 112,
+                        "endOffset": 1112
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 749,
+                    "endColumn": 95,
+                    "endOffset": 840
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-ka-rGE\\strings.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1503,
+                        "endColumn": 95,
+                        "endOffset": 1594
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 845,
+                    "endColumn": 91,
+                    "endOffset": 932
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-ka-rGE\\strings.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1117,
+                        "endColumn": 91,
+                        "endOffset": 1204
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 937,
+                    "endColumn": 92,
+                    "endOffset": 1025
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-ka-rGE\\strings.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1209,
+                        "endColumn": 92,
+                        "endOffset": 1297
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 1030,
+                    "endColumn": 87,
+                    "endOffset": 1113
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-ka-rGE\\strings.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 1599,
+                        "endColumn": 87,
+                        "endOffset": 1682
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 1118,
+                    "endColumn": 95,
+                    "endOffset": 1209
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-ka-rGE\\strings.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 1407,
+                        "endColumn": 95,
+                        "endOffset": 1498
+                    }
+                }
+            }
+        ]
+    }
+]

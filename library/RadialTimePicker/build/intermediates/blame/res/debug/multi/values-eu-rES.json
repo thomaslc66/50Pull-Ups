@@ -1,0 +1,216 @@
+[
+    {
+        "outputFile": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\build\\intermediates\\res\\merged\\debug\\values-eu-rES\\values-eu-rES.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 130,
+                    "endOffset": 231
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-eu-rES\\strings.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1331,
+                        "endColumn": 130,
+                        "endOffset": 1457
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 236,
+                    "endColumn": 114,
+                    "endOffset": 346
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-eu-rES\\strings.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 4,
+                        "startOffset": 1881,
+                        "endColumn": 118,
+                        "endOffset": 1995
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 351,
+                    "endColumn": 80,
+                    "endOffset": 427
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-eu-rES\\strings.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 809,
+                        "endColumn": 80,
+                        "endOffset": 885
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 432,
+                    "endColumn": 124,
+                    "endOffset": 552
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-eu-rES\\strings.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 890,
+                        "endColumn": 124,
+                        "endOffset": 1010
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 557,
+                    "endColumn": 120,
+                    "endOffset": 673
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-eu-rES\\strings.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 4,
+                        "startOffset": 1756,
+                        "endColumn": 124,
+                        "endOffset": 1876
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 678,
+                    "endColumn": 129,
+                    "endOffset": 803
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-eu-rES\\strings.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1015,
+                        "endColumn": 129,
+                        "endOffset": 1140
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 808,
+                    "endColumn": 101,
+                    "endOffset": 905
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-eu-rES\\strings.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1565,
+                        "endColumn": 101,
+                        "endOffset": 1662
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 910,
+                    "endColumn": 90,
+                    "endOffset": 996
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-eu-rES\\strings.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1145,
+                        "endColumn": 90,
+                        "endOffset": 1231
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 1001,
+                    "endColumn": 94,
+                    "endOffset": 1091
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-eu-rES\\strings.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1236,
+                        "endColumn": 94,
+                        "endOffset": 1326
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 1096,
+                    "endColumn": 88,
+                    "endOffset": 1180
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-eu-rES\\strings.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 1667,
+                        "endColumn": 88,
+                        "endOffset": 1751
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 1185,
+                    "endColumn": 102,
+                    "endOffset": 1283
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-eu-rES\\strings.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 1462,
+                        "endColumn": 102,
+                        "endOffset": 1560
+                    }
+                }
+            }
+        ]
+    }
+]

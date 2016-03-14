@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:weightSum="100">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="19"
+        android:weightSum="19">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/footer_bg"
+            android:layout_marginBottom="10dp"
+            android:weightSum="4"
+            android:id="@+id/layout_top_buttons"
+            android:layout_weight="16">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/btnArrowLeft"
+                android:layout_weight="2"
+                android:gravity="center_vertical|center_horizontal"
+                android:textColor="@drawable/next_previous_level_bouton"
+                android:text="@string/previous"
+                android:layout_marginLeft="5dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/btnArrowRight"
+                android:layout_weight="2"
+                android:textColor="@drawable/next_previous_level_bouton"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/next"
+                android:layout_marginRight="5dp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            >
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtViewLevel"
+                    android:gravity="center_horizontal"
+                    android:textSize="18dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentRight="true"
+                    android:singleLine="true"
+                    android:textColor="@color/orange_light" />
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtSelectDay"
+                    android:gravity="center_horizontal"
+                    android:textSize="18dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="@string/selectDay"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/txtViewLevel" />
+
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/selectLevelList"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:drawSelectorOnTop="false"
+                android:divider="@color/bg"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/txtSelectDay"
+                android:dividerHeight="5dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="81"
+        android:background="@color/footer_bg"
+        android:id="@+id/footer_bg_layout">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/validate"
+            android:id="@+id/btnValidateLevel"
+            android:layout_gravity="bottom|center"
+            android:background="@drawable/bouton_rouge"
+            android:clickable="true"
+            android:textColor="@color/snow_light"
+            android:typeface="sans"
+            android:textSize="25sp"
+            android:layout_margin="15dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

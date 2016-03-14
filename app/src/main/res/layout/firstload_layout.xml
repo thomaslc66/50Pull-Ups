@@ -1,0 +1,106 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Entrainement"
+    android:id="@+id/layout_entrainement"
+    android:background="@color/bg">
+
+    <!-- As the main content view, the view below consumes the entire
+         space available using match_parent in both dimensions. -->
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/txtView_welcome"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/relativeLayout2"
+        android:background="@drawable/rectange_left_bottom_shadow"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/btn_valider">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:ems="2"
+            android:id="@+id/editText"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="100dp"
+            android:textColor="@color/action_bar"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentRight="false"
+            android:gravity="center_vertical|center_horizontal"
+            android:numeric="integer"
+            android:layout_below="@+id/textView6"
+            android:hint="0" />
+
+        <com.pullups.android.TextView.RobotoTextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
+            android:password="false"
+            android:text="@string/testMessage"
+            android:padding="5dp"
+            android:singleLine="false"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/info_text_size" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/levelTest"
+        android:id="@+id/txtView_welcome"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:textIsSelectable="false"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/footer_bg"
+        android:layout_gravity="center_horizontal|bottom"
+        android:background="@color/footer_bg"
+        android:editable="false"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/relativeLayout2" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/validate"
+        android:id="@+id/btn_valider"
+        android:layout_gravity="center_horizontal|bottom"
+        android:background="@drawable/bouton_rouge"
+        android:clickable="false"
+        android:textColor="@color/snow_light"
+        android:typeface="sans"
+        android:textSize="25dp"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentBottom="true"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="25dp" />
+
+
+</RelativeLayout>

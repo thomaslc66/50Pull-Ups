@@ -1,0 +1,301 @@
+<!-- A DrawerLayout is intended to be used as the top-level content view using match_parent for both width and height to consume the full space available. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_accueil"
+    android:orientation="vertical"
+    android:weightSum="100"
+    android:background="@color/bg">
+
+    <!-- As the main content view, the view below consumes the entire
+         space available using match_parent in both dimensions. -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:weightSum="100"
+        android:layout_weight="@integer/top_layout_weight"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="12dp">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="35"
+            android:background="@drawable/pre_workout_shadow_white"
+            android:id="@+id/relativeLayout_top"
+            android:paddingLeft="12dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_entrainement"
+                android:id="@+id/txtView_Entrainement"
+                android:layout_marginTop="10dp"
+                android:singleLine="false"
+                android:textSize="@dimen/preworkout_text_size"
+                android:layout_marginBottom="7dp"
+                style="@style/RobotoTextView" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/line"
+                android:background="@color/dark_light"
+                android:layout_below="@+id/txtView_Entrainement"
+                android:layout_marginTop="2dp"
+                android:layout_alignLeft="@+id/txtView_Entrainement"
+                android:layout_marginBottom="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/level"
+                android:id="@+id/txtView_level"
+                android:layout_below="@+id/line"
+                android:layout_alignLeft="@+id/line"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                style="@style/RobotoTextView"
+                android:textSize="@dimen/txt_level_size" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/txtView_level"
+                android:layout_alignParentBottom="true"
+                android:weightSum="3">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:layout_weight="1">
+
+                    <ProgressBar
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/progressBar_level"
+                        android:progressDrawable="@drawable/custom_progress_bar_horizontal"
+                        style="@style/ProgressBarHorizontalCustom"
+                        android:max="6" />
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/img_view_levelProgression" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtView_info"
+
+                    android:paddingBottom="5dp"
+                    android:textSize="@dimen/txtinfo_text_size"
+                    android:paddingTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="2"
+                    android:text="Test du texte pour voir si lorsqu&apos;on met beaucoup de texte la taille s&apos;adapte bien ou non. Vérifier"
+                    style="@style/RobotoTextView" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="70"
+            android:background="@drawable/pre_workout_shadow_black"
+            android:weightSum="10"
+            android:paddingLeft="13dp"
+            android:paddingRight="5dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="6"
+                android:weightSum="7"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="7dp"
+                android:layout_gravity="bottom">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtView_txt_series"
+                    android:layout_gravity="left|bottom|center_horizontal"
+                    android:textSize="@dimen/total_text_text_size"
+                    android:textColor="@color/snow_light"
+                    android:includeFontPadding="false"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    style="@style/RobotoTextView"
+                    android:text="@string/seriedujour" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total"
+                    android:id="@+id/txt_total"
+                    android:textSize="@dimen/total_text_text_size"
+                    android:textColor="@color/snow_light"
+                    android:includeFontPadding="false"
+                    android:layout_weight="5"
+                    android:gravity="center_vertical|center_horizontal"
+                    style="@style/RobotoTextView"
+                    android:layout_gravity="bottom" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:baselineAligned="false"
+                android:weightSum="7"
+                android:id="@+id/linearLayout_series"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="top">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="5"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical|center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/viewSerie1"
+                        android:background="@drawable/circle_no_border"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|center_horizontal"
+                        style="@style/RobotoTextView"
+                        android:layout_margin="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/viewSerie2"
+                        android:background="@drawable/circle_no_border"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:layout_weight="1"
+                        style="@style/RobotoTextView"
+                        android:layout_margin="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/viewSerie3"
+                        android:background="@drawable/circle_no_border"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:layout_weight="1"
+                        style="@style/RobotoTextView"
+                        android:layout_margin="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/viewSerie4"
+                        android:background="@drawable/circle_no_border"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:layout_weight="1"
+                        style="@style/RobotoTextView"
+                        android:layout_margin="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/viewSerie5"
+                        android:background="@drawable/circle_no_border"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:layout_weight="1"
+                        style="@style/RobotoTextView"
+                        android:layout_margin="5dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_NbrTotal"
+                    android:textSize="@dimen/total_nbr_text_size"
+                    android:textColor="@color/bg"
+                    android:layout_weight="5"
+                    android:includeFontPadding="false"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="@integer/bottom_layout_weight"
+        android:background="@color/footer_bg"
+        android:gravity="center">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:text="@string/level_select"
+                android:id="@+id/btn_Level"
+                android:background="@drawable/bouton_vert"
+                android:textColor="@color/snow_light"
+                android:textSize="25sp"
+                android:layout_weight="1"
+                android:layout_marginBottom="5dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:text="@string/btn_demarrer"
+                android:id="@+id/btn_entrainement"
+                android:layout_gravity="center_horizontal|bottom"
+                android:background="@drawable/bouton_rouge"
+                android:clickable="true"
+                android:textColor="@color/snow_light"
+                android:textSize="25sp"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- android:layout_gravity="start" tells DrawerLayout to treat
+         this as a sliding drawer on the left side for left-to-right
+         languages and on the right side for right-to-left languages.
+         If you're not building against API 17 or higher, use
+         android:layout_gravity="left" instead. -->
+    <!-- The drawer is given a fixed width in dp and extends the full height of
+         the container. -->
+
+
+</LinearLayout>

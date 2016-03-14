@@ -1,0 +1,171 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:focusable="true"
+    android:clickable="true"
+    android:weightSum="100">
+
+
+    <LinearLayout
+        android:id="@+id/linearTop"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="19"
+        android:weightSum="60"
+        android:layout_margin="15dp">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="26.5">
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/topRectangle"
+                android:gravity="center_vertical"
+                android:layout_alignParentStart="false"
+                android:layout_alignParentEnd="false"
+                android:contentDescription=""
+                android:layout_alignParentLeft="false"
+                android:background="@drawable/toprectangle_accueil"
+                android:adjustViewBounds="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/txtView_topRectangle"
+                android:layout_alignTop="@+id/topRectangle"
+                android:maxLines="1"
+                android:layout_alignBottom="@+id/topRectangle"
+                android:gravity="center_vertical"
+                android:layout_alignRight="@+id/topRectangle"
+                android:textSize="@dimen/top_recangle_text_size"
+                android:layout_alignLeft="@+id/topRectangle"
+                android:layout_marginLeft="@dimen/top_rectangle_text_left_margin" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/rectangle_center"
+            android:gravity="center_vertical|center"
+            android:layout_weight="11"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/center_rectangle"
+            android:cropToPadding="false"
+            android:scaleType="fitXY" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:weightSum="3"
+            android:id="@+id/linearLayout_bouton"
+            android:layout_weight="23">
+
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/btnStats"
+                android:text="@string/stats"
+                android:textColor="@android:color/background_dark"
+                android:textSize="@dimen/main_buttons_text_size"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/bouton_statistiques"
+                android:layout_gravity="center_vertical"
+                android:gravity="bottom|center_horizontal"
+                android:paddingBottom="@dimen/main_buttons_bottom_padding"
+                android:clickable="true"
+                android:singleLine="true"
+                android:layout_marginRight="4dp" />
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btnTotal"
+                    android:text="@string/total"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="@dimen/main_buttons_text_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/bouton_total"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="bottom|center_horizontal"
+                    android:paddingBottom="@dimen/main_buttons_bottom_padding"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="false" />
+
+                <TextView
+                    android:text="246"
+                    android:id="@+id/txtview_nbrtotal"
+                    android:textSize="@dimen/accueil_total_text_size"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/action_bar"
+                    android:singleLine="false"
+                    android:layout_centerInParent="true"
+                    android:textStyle="bold"
+                    android:paddingBottom="@dimen/txtview_nbr_padding_bottom" />
+
+            </RelativeLayout>
+
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/btnExo"
+                android:text="@string/exercices"
+                android:textColor="@android:color/background_dark"
+                android:textSize="@dimen/main_buttons_text_size"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/bouton_exercice"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="@dimen/main_buttons_bottom_padding"
+                android:gravity="bottom|center_horizontal"
+                android:layout_marginLeft="4dp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="81"
+        android:background="@color/footer_bg">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/btn_entrainement"
+            android:id="@+id/btn_entrainement"
+            android:background="@drawable/bouton_rouge"
+            android:clickable="true"
+            android:textColor="@color/snow_light"
+            android:typeface="sans"
+            android:textSize="@dimen/btn_training_text_size"
+            android:paddingLeft="@dimen/btn_training_left_padding"
+            android:paddingTop="@dimen/btn_training_top_padding"
+            android:paddingRight="@dimen/btn_training_right_padding"
+            android:paddingBottom="@dimen/btn_training_bottom_padding"
+            android:layout_margin="15dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" />
+    </RelativeLayout>
+</LinearLayout>
+
+

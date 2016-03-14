@@ -1,0 +1,15 @@
+<!-- [ Mirror metadata ] generatedAt: 1434236190363 -->
+<!-- Generated screen file. Fill the id tags below with content with
+which to populate your previewed layout. For a complete specification
+of sample data, please see http://jimulabs.com/sample-data-specifications/ 
+
+Valid attributes on <screen> tag: theme="@style/someTheme" inEditMode="false" overlay="@drawable/mockup" -->
+<screen>
+    <_content layout="@layout/mdtp_date_picker_selected_date">
+        <!-- TextView Examples:
+        <date_picker_month text="@string/string_resource" />
+        <date_picker_month text="Text literal" textSize="14sp" /> -->
+        <date_picker_month />
+        <date_picker_day />
+    </_content>
+</screen>

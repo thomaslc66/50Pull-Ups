@@ -1,0 +1,102 @@
+[
+    {
+        "outputFile": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\build\\intermediates\\res\\merged\\debug\\values-land\\values-land.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 51,
+                    "endOffset": 102
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-land\\dimens.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 739,
+                        "endColumn": 51,
+                        "endOffset": 786
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 107,
+                    "endColumn": 53,
+                    "endOffset": 156
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-land\\dimens.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 791,
+                        "endColumn": 53,
+                        "endOffset": 840
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 161,
+                    "endColumn": 59,
+                    "endOffset": 216
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-land\\dimens.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 906,
+                        "endColumn": 59,
+                        "endOffset": 961
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 221,
+                    "endColumn": 60,
+                    "endOffset": 277
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-land\\dimens.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 966,
+                        "endColumn": 60,
+                        "endOffset": 1022
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 282,
+                    "endColumn": 59,
+                    "endOffset": 337
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-land\\dimens.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 846,
+                        "endColumn": 59,
+                        "endOffset": 901
+                    }
+                }
+            }
+        ]
+    }
+]

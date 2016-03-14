@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="90"
+        android:layout_below="@+id/textView"
+    android:background="@drawable/bouton_total"
+    android:paddingLeft="15dp"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:paddingRight="20dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Exercices"
+            android:id="@+id/textView_titre_exo"
+            android:textIsSelectable="false"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/textView"
+            android:background="@color/dark_light"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="30"
+            android:layout_gravity="top|center"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Exercices"
+                android:id="@+id/imageView_Intensity"
+                android:textIsSelectable="true"
+                android:src="@drawable/icon_intensity" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="@string/difficulty"
+                android:id="@+id/textViewIntensity"
+                android:textIsSelectable="true"
+                android:gravity="center_vertical"
+                android:layout_toRightOf="@+id/imageView_Intensity"
+                android:layout_alignBottom="@+id/imageView_Intensity"
+                android:layout_marginLeft="7dp"
+                android:layout_alignTop="@+id/imageView_Intensity"
+                android:layout_marginRight="3dp"
+                android:layout_alignParentStart="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="Facile"
+                android:id="@+id/txtView_difficulty"
+                android:layout_toRightOf="@+id/textViewIntensity"
+                android:layout_alignTop="@+id/imageView_Intensity"
+                android:layout_alignBottom="@+id/imageView_Intensity"
+                android:gravity="center_vertical"
+                android:textColor="@color/bg" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="30"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Exercices"
+                android:id="@+id/imgView_Muscle"
+                android:textIsSelectable="true"
+                android:src="@drawable/icon_muscle" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="Triceps, Grand dorsal, Dos"
+                android:id="@+id/textViewMuscle"
+                android:textIsSelectable="true"
+                android:layout_toRightOf="@+id/imgView_Muscle"
+                android:layout_alignBottom="@+id/imgView_Muscle"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="7dp"
+                android:layout_alignTop="@+id/imgView_Muscle" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="30">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Exercices"
+                android:id="@+id/imageView_video"
+                android:textIsSelectable="true"
+                android:src="@drawable/icon_video" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="@string/play_video"
+                android:id="@+id/textViewVideo"
+                android:textIsSelectable="true"
+                android:gravity="center_vertical"
+                android:layout_alignBottom="@+id/imageView_video"
+                android:layout_marginLeft="7dp"
+                android:layout_alignTop="@+id/imageView_video"
+                android:layout_toRightOf="@+id/imageView_video" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/textView2"
+            android:background="@color/dark_light"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:id="@+id/exoListView"
+            android:clickable="true"
+            android:focusableInTouchMode="false"
+            android:background="@drawable/video_player_state" />
+    </LinearLayout>

@@ -1,0 +1,178 @@
+[
+    {
+        "outputFile": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\build\\intermediates\\res\\merged\\debug\\values-sw600dp-land-v13\\values-sw600dp-land-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 51,
+                    "endOffset": 102
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-sw600dp-land\\dimens.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 971,
+                        "endColumn": 51,
+                        "endOffset": 1018
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 107,
+                    "endColumn": 53,
+                    "endOffset": 156
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-sw600dp-land\\dimens.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1023,
+                        "endColumn": 53,
+                        "endOffset": 1072
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 161,
+                    "endColumn": 61,
+                    "endOffset": 218
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-sw600dp-land\\dimens.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 796,
+                        "endColumn": 61,
+                        "endOffset": 853
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 223,
+                    "endColumn": 50,
+                    "endOffset": 269
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-sw600dp-land\\dimens.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 4,
+                        "startOffset": 1182,
+                        "endColumn": 50,
+                        "endOffset": 1228
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 274,
+                    "endColumn": 50,
+                    "endOffset": 320
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-sw600dp-land\\dimens.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 4,
+                        "startOffset": 1131,
+                        "endColumn": 50,
+                        "endOffset": 1177
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 325,
+                    "endColumn": 53,
+                    "endOffset": 374
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-sw600dp-land\\dimens.xml",
+                    "position": {
+                        "startLine": 30,
+                        "startColumn": 4,
+                        "startOffset": 1233,
+                        "endColumn": 53,
+                        "endOffset": 1282
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 379,
+                    "endColumn": 53,
+                    "endOffset": 428
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-sw600dp-land\\dimens.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 1077,
+                        "endColumn": 53,
+                        "endOffset": 1126
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 433,
+                    "endColumn": 60,
+                    "endOffset": 489
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-sw600dp-land\\dimens.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 858,
+                        "endColumn": 60,
+                        "endOffset": 914
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 494,
+                    "endColumn": 51,
+                    "endOffset": 541
+                },
+                "from": {
+                    "file": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\values-sw600dp-land\\dimens.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 919,
+                        "endColumn": 51,
+                        "endOffset": 966
+                    }
+                }
+            }
+        ]
+    }
+]

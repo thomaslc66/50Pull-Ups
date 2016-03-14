@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme_ActionBarAccueil" parent="@android:style/Theme.Holo.Light">
+        <item   name="android:actionBarStyle"   >@style/ActionBarAccueil           </item>
+       <!-- <item name="android:homeAsUpIndicator">@drawable/icon_menu</item>-->
+    </style>
+
+    <style      name="ActionBarAccueil" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item   name="android:background"       >@color/action_bar                  </item>
+        <item   name="android:titleTextStyle"   >@style/MyActionBar.TitleTextStyle  </item>
+        <item   name="android:icon"             >@drawable/icon_menu                </item>
+    </style>
+</resources>

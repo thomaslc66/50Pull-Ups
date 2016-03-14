@@ -1,0 +1,39 @@
+<!-- [ Mirror metadata ] generatedAt: 1434236190134 -->
+<!-- Generated screen file. Fill the id tags below with content with
+which to populate your previewed layout. For a complete specification
+of sample data, please see http://jimulabs.com/sample-data-specifications/ 
+
+Valid attributes on <screen> tag: theme="@style/someTheme" inEditMode="false" overlay="@drawable/mockup" -->
+<screen>
+    <_content layout="@layout/activity_alarme">
+        <!-- TextView Examples:
+        <textViewtitle text="@string/string_resource" />
+        <textViewtitle text="Text literal" textSize="14sp" /> -->
+        <textViewtitle />
+        <listViewAlarme>
+            <items layout="@android:layout/simple_list_item_1" >
+                <_item>
+                    <text1>Vancouver</text1>
+                </_item>
+                <_item>
+                    <text1>Cairo</text1>
+                </_item>
+                <_item>
+                    <text1>New York</text1>
+                </_item>
+                <_item>
+                    <text1>San Francisco</text1>
+                </_item>
+                <_item>
+                    <text1>Seattle</text1>
+                </_item>
+                <_item>
+                    <text1>Hong Kong</text1>
+                </_item>
+                <_item>
+                    <text1>Tokyo</text1>
+                </_item>
+            </items>
+                </listViewAlarme>
+    </_content>
+</screen>

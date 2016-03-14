@@ -1,0 +1,69 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_bottom_margin">16dp</dimen>
+
+    <!--- ACTIVITY ACCUEIL -->
+    <!-- element left and right margin -->
+    <dimen name="element_left_margin">15dp</dimen>
+    <dimen name="element_right_margin">13dp</dimen>
+    <dimen name="element_space_between">5dp</dimen>
+
+    <!-- top rectangle -->
+    <dimen name="top_rectangle_right_margin">15dp</dimen>
+    <dimen name="top_rectangle_top_margin">10dp</dimen>
+    <dimen name="top_rectangle_height">75dp</dimen>
+    <dimen name="top_recangle_text_size">27sp</dimen>
+    <dimen name="top_rectangle_text_left_margin">100dp</dimen>
+
+    <!-- LinearLayout ActiviteAccueil Activity -->
+    <dimen name="main_buttons_height">150dp</dimen>
+    <dimen name="main_buttons_left_padding">5dp</dimen>
+    <dimen name="main_buttons_right_padding">5dp</dimen>
+    <dimen name="main_buttons_bottom_padding">15dp</dimen>
+    <dimen name="main_buttons_text_size">28sp</dimen>
+
+    <!-- nbr_TextView -->
+    <dimen name="txtview_nbr_padding_bottom">30dp</dimen>
+    <dimen name="accueil_total_text_size">50dp</dimen>
+
+
+    <!-- Training Button -->
+    <dimen name="btn_training_left_margin">15dp</dimen>
+    <dimen name="btn_training_right_margin">18dp</dimen>
+    <dimen name="btn_training_top_margin">20dp</dimen>
+    <dimen name="btn_training_bottom_margin">20dp</dimen>
+
+    <dimen name="btn_training_left_padding">15dp</dimen>
+    <dimen name="btn_training_right_padding">18dp</dimen>
+    <dimen name="btn_training_top_padding">15dp</dimen>
+    <dimen name="btn_training_bottom_padding">15dp</dimen>
+
+    <dimen name="btn_training_text_size">35sp</dimen>
+    <!--- ACTIVITY ACCUEIL -->
+
+    <!-- ACTIVITY PREWORKOUT -->
+    <integer name="top_layout_weight">30</integer>
+    <integer name="bottom_layout_weight">70</integer>
+
+    <dimen name="preworkout_text_size">60sp</dimen>
+    <dimen name="txtinfo_text_size">30sp</dimen>
+
+    <dimen name="total_nbr_text_size">60sp</dimen>
+    <dimen name="total_text_text_size">35sp</dimen>
+
+    <!-- ACTIVITY WORKOUT -->
+    <dimen name="number_text_size">125sp</dimen>
+
+    <!-- LinearLAyout Serie -->
+    <dimen name="workout_serie_padding">30dp</dimen>
+    <dimen name="currentSerie_TextSize">290dp</dimen>
+    <dimen name="txt_level_size">16dp</dimen>
+    <dimen name="pullup_negative_text_size">35dp</dimen>
+
+    <!-- ACTIVITY STATS -->
+    <dimen name="padding_stats_title">100dp</dimen>
+    <dimen name="stats_title_text_size">30dp</dimen>
+
+
+</resources>

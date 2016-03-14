@@ -1,0 +1,23 @@
+<!-- [ Mirror metadata ] generatedAt: 1434236190224 -->
+<!-- Generated screen file. Fill the id tags below with content with
+which to populate your previewed layout. For a complete specification
+of sample data, please see http://jimulabs.com/sample-data-specifications/ 
+
+Valid attributes on <screen> tag: theme="@style/someTheme" inEditMode="false" overlay="@drawable/mockup" -->
+<screen>
+    <_content layout="@layout/activity_workout">
+        <!-- TextView Examples:
+        <footer_bg text="@string/string_resource" />
+        <footer_bg text="Text literal" textSize="14sp" /> -->
+        <footer_bg />
+        <txtView_Jour />
+        <txtView_nombre />
+        <view_negative />
+        <view_nbr1 />
+        <view_nbr2 />
+        <view_nbr3 />
+        <view_nbr4 />
+        <view_nbr5 />
+        <txtView_welcome />
+    </_content>
+</screen>

@@ -1,0 +1,24 @@
+<!-- [ Mirror metadata ] generatedAt: 1434236190235 -->
+<!-- Generated screen file. Fill the id tags below with content with
+which to populate your previewed layout. For a complete specification
+of sample data, please see http://jimulabs.com/sample-data-specifications/ 
+
+Valid attributes on <screen> tag: theme="@style/someTheme" inEditMode="false" overlay="@drawable/mockup" -->
+<screen>
+    <_content layout="@layout/exercice_list_item">
+        <!-- TextView Examples:
+        <textView_titre_exo text="@string/string_resource" />
+        <textView_titre_exo text="Text literal" textSize="14sp" /> -->
+        <textView_titre_exo />
+        <!-- ImageView Examples:
+        <exoListView src="@drawable/image_resource" />
+        <exoListView src="relative_path/image.jpg" /> -->
+        <exoListView />
+        <imageView_Intensity />
+        <textViewIntensity />
+        <imgView_Muscle />
+        <textViewMuscle />
+        <imageView_video />
+        <textViewVideo />
+    </_content>
+</screen>
