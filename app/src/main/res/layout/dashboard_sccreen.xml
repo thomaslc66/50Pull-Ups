@@ -3,33 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/bg">
+    android:background="@color/bg"
+    android:weightSum="100">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="fill_parent"
-        android:layout_height="42dp"
-        android:gravity="center"
-        android:text="@string/alarme"
-        android:textSize="20sp"
-        style="@style/RobotoTextView" />
-
-    <ScrollView
+    <LinearLayout
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="fill_parent"
+        android:layout_weight="19"
         android:background="@drawable/rectange_left_bottom_shadow"
         android:layout_marginTop="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginLeft="18dp"
+        android:layout_marginLeft="15dp"
+        android:orientation="vertical"
         android:padding="10dp">
 
         <LinearLayout
             android:id="@+id/llDisplayAlramForDashboard"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:weightSum="7">
 
@@ -37,10 +30,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:gravity="center"
                 android:orientation="horizontal"
-                android:padding="4dp"
-                android:layout_weight="1">
+                android:padding="3dp"
+                android:layout_weight="1"
+                android:gravity="center">
 
                 <CheckBox
                     android:layout_width="0dp"
@@ -76,7 +69,7 @@
                 android:layout_marginBottom="1dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:padding="4dp"
+                android:padding="3dp"
                 android:layout_weight="1">
 
                 <CheckBox
@@ -113,7 +106,7 @@
                 android:layout_marginBottom="1dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:padding="4dp"
+                android:padding="3dp"
                 android:layout_weight="1">
 
                 <CheckBox
@@ -149,7 +142,7 @@
                 android:layout_marginBottom="1dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:padding="4dp"
+                android:padding="3dp"
                 android:layout_weight="1">
 
                 <CheckBox
@@ -185,7 +178,7 @@
                 android:layout_marginBottom="1dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:padding="4dp"
+                android:padding="3dp"
                 android:layout_weight="1">
 
                 <CheckBox
@@ -222,7 +215,7 @@
                 android:layout_marginBottom="1dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:padding="4dp"
+                android:padding="3dp"
                 android:layout_weight="1">
 
                 <CheckBox
@@ -260,7 +253,7 @@
                 android:layout_marginBottom="1dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:padding="4dp"
+                android:padding="3dp"
                 android:layout_weight="1">
 
                 <CheckBox
@@ -291,5 +284,33 @@
 
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="81"
+        android:background="@color/footer_bg" >
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/validate"
+            android:id="@+id/button_validate_alarm"
+            android:background="@drawable/bouton_rouge"
+            android:clickable="true"
+            android:textColor="@color/snow_light"
+            android:typeface="sans"
+            android:textSize="@dimen/btn_training_text_size"
+            android:paddingLeft="@dimen/btn_training_left_padding"
+            android:paddingTop="@dimen/btn_training_top_padding"
+            android:paddingRight="@dimen/btn_training_right_padding"
+            android:paddingBottom="@dimen/btn_training_bottom_padding"
+            android:layout_margin="15dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" />
+    </RelativeLayout>
+
 </LinearLayout>

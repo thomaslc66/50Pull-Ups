@@ -4,12 +4,12 @@
         "source": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\color\\mdtp_date_picker_year_selector.xml"
     },
     {
-        "merged": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\build\\intermediates\\res\\merged\\release\\color\\mdtp_done_text_color.xml",
-        "source": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\color\\mdtp_done_text_color.xml"
-    },
-    {
         "merged": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\build\\intermediates\\res\\merged\\release\\color\\mdtp_done_text_color_dark.xml",
         "source": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\color\\mdtp_done_text_color_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\build\\intermediates\\res\\merged\\release\\color\\mdtp_done_text_color.xml",
+        "source": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\src\\main\\res\\color\\mdtp_done_text_color.xml"
     },
     {
         "merged": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\build\\intermediates\\res\\merged\\release\\color\\mdtp_date_picker_selector.xml",

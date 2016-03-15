@@ -29,8 +29,8 @@ import android.widget.Toast;
 
 import com.pullups.android.Alarm.AlarmActivity;
 import com.pullups.android.Realm.JourEntrainementDB;
-import com.special.ResideMenu.ResideMenu;
-import com.special.ResideMenu.ResideMenuItem;
+import com.pullups.android.ResideMenu.ResideMenu;
+import com.pullups.android.ResideMenu.ResideMenuItem;
 
 
 public class ActiviteAccueil extends Activity implements View.OnClickListener {
@@ -70,8 +70,8 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
     private Handler           handler;
 
     /* Reside Menu */
-    private ResideMenu        resideMenu;
-    private ResideMenuItem    itemAlarme;
+    private ResideMenu resideMenu;
+    private ResideMenuItem itemAlarme;
     private ResideMenuItem    itemAbout;
     private ResideMenuItem    itemRate;
     private ResideMenuItem    itemShare;

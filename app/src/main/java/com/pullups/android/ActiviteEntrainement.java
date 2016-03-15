@@ -176,7 +176,7 @@ public class ActiviteEntrainement extends Activity {
                 //Le compteurEntrainement n'est pas encore définit
                 //Il est définit lorsque l'activité ActiviteCompteARebours nous retourne ce dernier
 
-                String jour = String.format(res.getString(R.string.displayDayActiviteChoixDuNiveau),int_jourDuNiveau);
+                String jour   = String.format(res.getString(R.string.displayDayActiviteChoixDuNiveau),int_jourDuNiveau);
                 String niveau = String.format(res.getString(R.string.displayLevelFormat),flt_niveau);
                 txtNiveau.setText(niveau);
                 txtView_Jour.setText(jour);

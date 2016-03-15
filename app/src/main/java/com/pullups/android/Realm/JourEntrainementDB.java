@@ -228,12 +228,13 @@ public class JourEntrainementDB {
             realm.beginTransaction();
             RealmResults<JourEntainement> r = realm.where(JourEntainement.class).greaterThan(totalDeTractions, ZERO).findAll();
             //Workaround Realm results see: https://github.com/realm/realm-java/issues/64ZERO
+
+            //Log.d("REALM", "Taille: " + r.size());
             for (int i = ZERO; i < r.size(); i++) {
                 JourEntainement t = r.get(i);
-                Log.w("JourEntrainement avant", "" + t.getTotalDeTractions());
+                //Log.w("JourEntrainement avant", "" + t.getTotalDeTractions());
                 t.setTotalDeTractions(ZERO);
-                Log.w("JourEntrainement apres", "" + t.getTotalDeTractions());
-
+                //Log.w("JourEntrainement apres", "" + t.getTotalDeTractions());
             }
             realm.commitTransaction();
         } catch (Exception e) {

@@ -77,7 +77,7 @@
     <string name="shareText">Hey, try this application that allows you to reach 50 pull-ups - http://play.google.com/store/apps/details?id=com.pullups.android</string>
     <string name="shareSubject">Share</string>
     <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
-    <string name="reinitialisation">Réinitialisation Ok!</string>
+    <string name="reinitialisation">Reset Ok!</string>
     <string name="reminderSet">Reminder set Successfully!</string>
     <string name="reminderNotSet">Reminder Not set Successfully!</string>
     <string name="heure_alarme">10:00</string>
