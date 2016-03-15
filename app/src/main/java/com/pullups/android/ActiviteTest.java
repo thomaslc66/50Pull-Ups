@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputFilter;
-import android.util.Log;
+//import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
@@ -94,7 +94,7 @@ public class ActiviteTest extends Activity {
                         //On applique les changements aux préférences de l'application
                         editor.apply();
 
-                        Log.w("DAY", "" + trouverLeNiveauParRapportAuNombreDeTractions(int_nombreTractions));
+                       //Log.w("DAY", "" + trouverLeNiveauParRapportAuNombreDeTractions(int_nombreTractions));
 
                         String niveauChoisi = String.format(getString(R.string.niveauSelectionne), flt_niveau);
 

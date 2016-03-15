@@ -10,7 +10,7 @@ public class ResetAlarmReceiver extends BroadcastReceiver {
 	//This Broadcast call when Mobile Restart..........
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		Log.d("reboot", "Reset Alaram Reciver Call");
+		//Log.d("reboot", "Reset Alaram Reciver Call");
 		//Service Call for Reschdule Alaram using Alaram data save into Database.....
 		context.startService(new Intent(context, ResetAlarmService.class));
 	}

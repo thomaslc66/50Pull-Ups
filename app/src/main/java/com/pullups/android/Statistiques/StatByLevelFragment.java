@@ -90,7 +90,7 @@ public class StatByLevelFragment extends Fragment {
                 int nbr = r.size();
                 Integer[] tabInt = new Integer[nbr];
 
-                Log.d("TAG", nbr + "");
+                //Log.d("TAG", nbr + "");
                 //On parcourt tout le tableau des niveaux
                 for (int i = 0; i < nbr; i++) {
                     //on récupère le jour
@@ -101,7 +101,7 @@ public class StatByLevelFragment extends Fragment {
                 return tabInt;
             }//try
             catch(Exception e){
-                Log.w("Erreur", e.getMessage().toString());
+                //Log.w("Erreur", e.getMessage().toString());
                 Integer[] tabInteger = new Integer[0];
                 return tabInteger;
             }//catch

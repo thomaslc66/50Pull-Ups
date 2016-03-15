@@ -16,7 +16,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
-import android.util.Log;
+//import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -84,7 +84,7 @@ public class ActiviteCompteARebours extends AdMobActivity {
                 bln_addTime              = false;                    //sinon le timer ne se lance pas
                 int_rowTime_display      = int_total_time_in_millis; //pour l'affiche du nouveau temps
 
-                Log.d("TIMER", "redéfinition du timer");
+                //Log.d("TIMER", "redéfinition du timer");
 
                 progressBar.setMax(int_total_time_in_millis);        //fixe le max
                 progressBar.setProgress(int_total_time_in_millis);   //fixe la valeur de la progressBar
@@ -146,7 +146,7 @@ private class TimerRunnable implements Runnable{
                 int_rowTime_display -= INTERVALLE;
 
                 progressBar.setSecondaryProgress(int_progress_value);
-                Log.d("TIMER", "timer : " + int_rowTime_display);
+                //Log.d("TIMER", "timer : " + int_rowTime_display);
 
                 String temps = String.format("%02d:%02d",
                         TimeUnit.MILLISECONDS.toMinutes(int_rowTime_display),
@@ -238,7 +238,7 @@ private class TimerRunnable implements Runnable{
     protected void onPause() {
         super.onPause();
 
-        Log.d("TIMER", "Arrêt du time, onPause method");
+        //Log.d("TIMER", "Arrêt du time, onPause method");
     }
 
     /*******************************************************************************************************
@@ -250,12 +250,12 @@ private class TimerRunnable implements Runnable{
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d("TIMER", "onStop method");
+        //Log.d("TIMER", "onStop method");
     }
 
     protected void onDestroy() {
         super.onDestroy();
-        Log.d("TIMER", "Arrêt du timer, onDestroy Method");
+        //Log.d("TIMER", "Arrêt du timer, onDestroy Method");
         if(runnable != null){
             runnable.killRunnable();
             handler.removeCallbacks(runnable);

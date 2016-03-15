@@ -6,7 +6,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
+//import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -284,7 +284,7 @@ public class AlarmActivity extends FragmentActivity implements OnClickListener {
     private void addToDatabase(int id, String isEnable) {
 
         boolean isDelete = mDatasource.deletePendingIntent(id);
-        Log.d("tag", "isDelete : " + isDelete);
+        //Log.d("tag", "isDelete : " + isDelete);
 
         //month +1
         mMonth++;
@@ -324,7 +324,7 @@ public class AlarmActivity extends FragmentActivity implements OnClickListener {
                     CancelAnAlarm(Const.MONDAY_REMINDER_ID);
                     boolean isDeleted = mDatasource
                             .deletePendingIntent(Const.MONDAY_REMINDER_ID);
-                    Log.d("tag", "Reminder Deleted : " + isDeleted);
+                    //Log.d("tag", "Reminder Deleted : " + isDeleted);
                 }
                 break;
             case R.id.cbMardiForDashboard:
@@ -335,7 +335,7 @@ public class AlarmActivity extends FragmentActivity implements OnClickListener {
                     CancelAnAlarm(Const.TUESDAY_REMINDER_ID);
                     boolean isDeleted = mDatasource
                             .deletePendingIntent(Const.TUESDAY_REMINDER_ID);
-                    Log.d("tag", "Reminder Deleted : " + isDeleted);
+                    //Log.d("tag", "Reminder Deleted : " + isDeleted);
                 }
                 break;
             case R.id.cbMercrediForDashboard:
@@ -346,7 +346,7 @@ public class AlarmActivity extends FragmentActivity implements OnClickListener {
                     CancelAnAlarm(Const.WENSDAY_REMINDER_ID);
                     boolean isDeleted = mDatasource
                             .deletePendingIntent(Const.WENSDAY_REMINDER_ID);
-                    Log.d("tag", "Reminder Deleted : " + isDeleted);
+                    //Log.d("tag", "Reminder Deleted : " + isDeleted);
                 }
 
                 break;
@@ -358,7 +358,7 @@ public class AlarmActivity extends FragmentActivity implements OnClickListener {
                     CancelAnAlarm(Const.THURSDAY_REMINDER_ID);
                     boolean isDeleted = mDatasource
                             .deletePendingIntent(Const.THURSDAY_REMINDER_ID);
-                    Log.d("tag", "Reminder Deleted : " + isDeleted);
+                    //Log.d("tag", "Reminder Deleted : " + isDeleted);
                 }
 
                 break;
@@ -370,7 +370,7 @@ public class AlarmActivity extends FragmentActivity implements OnClickListener {
                     CancelAnAlarm(Const.FRIDAY_REMINDER_ID);
                     boolean isDeleted = mDatasource
                             .deletePendingIntent(Const.FRIDAY_REMINDER_ID);
-                    Log.d("tag", "Reminder Deleted : " + isDeleted);
+                    //Log.d("tag", "Reminder Deleted : " + isDeleted);
                 }
 
                 break;
@@ -382,7 +382,7 @@ public class AlarmActivity extends FragmentActivity implements OnClickListener {
                     CancelAnAlarm(Const.SATERDAY_REMINDER_ID);
                     boolean isDeleted = mDatasource
                             .deletePendingIntent(Const.SATERDAY_REMINDER_ID);
-                    Log.d("tag", "Reminder Deleted : " + isDeleted);
+                    //Log.d("tag", "Reminder Deleted : " + isDeleted);
                 }
 
                 break;
@@ -394,7 +394,7 @@ public class AlarmActivity extends FragmentActivity implements OnClickListener {
                     CancelAnAlarm(Const.SUNDAY_REMINDER_ID);
                     boolean isDeleted = mDatasource
                             .deletePendingIntent(Const.SUNDAY_REMINDER_ID);
-                    Log.d("tag", "Reminder Deleted : " + isDeleted);
+                    //Log.d("tag", "Reminder Deleted : " + isDeleted);
                 }
                 break;
         }

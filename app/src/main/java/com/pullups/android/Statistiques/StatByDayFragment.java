@@ -158,7 +158,7 @@ class AsyncRunnable extends AsyncTask<Context, Void, ArrayList<BarDataSet>> {
 
             }catch (Exception e){
                 e.printStackTrace();
-                Log.w("TAG ", "Error in getting data");
+                //Log.w("TAG ", "Error in getting data");
             }
 
             return sets;

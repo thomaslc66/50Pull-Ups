@@ -40,19 +40,19 @@ public class ResetAlarmService extends Service {
 	public void onDestroy() {
 		super.onDestroy();
 
-		Log.d("Reset Alarm service", "onDestroy Call");
+		//Log.d("Reset Alarm service", "onDestroy Call");
 		mDatasource.close();
 	}
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		Log.d("Reset Alarm service", "onCreate Call");
+		//Log.d("Reset Alarm service", "onCreate Call");
 		mDatasource = new PendingIntentsDataSource(this);
 		mDatasource.open();
 
 		//
-		Log.d("tag", "on Start Call");
+		//Log.d("tag", "on Start Call");
 		//Get All Alaram Data
 		mAllAlarmList = mDatasource.getAllPendingIntents();
 		if (mAllAlarmList.size() > 0) {
@@ -72,7 +72,7 @@ public class ResetAlarmService extends Service {
 			//Stop Service after Re-Schedule All Alaram..........
 			stopSelf();
 		} else {
-			System.out.println("No Alarm Schedule Found..............");
+			//System.out.println("No Alarm Schedule Found..............");
 			stopSelf();
 		}
 	}
@@ -87,11 +87,11 @@ public class ResetAlarmService extends Service {
 	//Re-Schedule All ALaram ,using Database...........
 	public void resetAlarmSchedule() {
 
-		Log.d("Reset Alarm service", "Reset Alaram Schedule Method Call");
+		//Log.d("Reset Alarm service", "Reset Alaram Schedule Method Call");
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		try {
 			Date mNextIsExecute = sdf.parse(nextOccerenceDate);
-			System.out.println("Next Execute Date : " + mNextIsExecute);
+			//System.out.println("Next Execute Date : " + mNextIsExecute);
 			Calendar mNextCal = Calendar.getInstance();
 			mNextCal.setTime(mNextIsExecute);
 			mDay = mNextCal.get(Calendar.DATE);
@@ -114,7 +114,7 @@ public class ResetAlarmService extends Service {
 		c.set(Calendar.SECOND, 0);
 		c.set(year, month, day);
 
-		Log.w("mMonth", ""+month +" Month++ = " + month++);
+		//Log.w("mMonth", ""+month +" Month++ = " + month++);
 
 		Intent i = new Intent(getApplicationContext(), MyReceiver.class);
 		Bundle b = new Bundle();
@@ -136,7 +136,7 @@ public class ResetAlarmService extends Service {
 	private void addToDatabase(int id, String isEnable) {
 
 		boolean isDelete = mDatasource.deletePendingIntent(id);
-		Log.d("service", "isDelete : " + isDelete);
+		//Log.d("service", "isDelete : " + isDelete);
 
 		String nextOccerenceDate = mDay + "/" + mMonth + "/" + mYear + " "
 				+ mHour + ":" + mMinutes;
@@ -145,13 +145,13 @@ public class ResetAlarmService extends Service {
 				nextOccerenceDate);
 		try {
 			if (!isInserRow.getMessage().equals("")) {
-				Log.d("service", "Reminder set Successfully!");
+				//Log.d("service", "Reminder set Successfully!");
 			} else {
-				Log.d("service", "Reminder Not set Successfully!");
+				//Log.d("service", "Reminder Not set Successfully!");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			Log.d("service", "Reminder Not set Successfully!");
+			//Log.d("service", "Reminder Not set Successfully!");
 		}
 
 	}

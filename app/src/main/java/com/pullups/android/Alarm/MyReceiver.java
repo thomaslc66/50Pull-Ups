@@ -44,15 +44,15 @@ public class MyReceiver extends BroadcastReceiver {
 		//Code for Find Today Day Name........ 
 		SimpleDateFormat outFormat = new SimpleDateFormat("EEEE");
 		//mToday = outFormat.format(new Date()).toLowerCase();
-		Log.d("tag mToday", "Day is : " + mToday);
+		//Log.d("tag mToday", "Day is : " + mToday);
 
 		Calendar calendar = Calendar.getInstance();
 		mToday = calendar.get(Calendar.DAY_OF_WEEK);
-		Log.d("tag mToday", "Day is : " + mToday);
+		//Log.d("tag mToday", "Day is : " + mToday);
 		//Fine Alaram Day Name ,using Alaram Id..........
 
 		mReminderDay = id;
-		Log.d("tag mReminderDay", "Reminder Day : " + mReminderDay);
+		//Log.d("tag mReminderDay", "Reminder Day : " + mReminderDay);
 		
 		//update alaram nextOccurace Date,
 		//it is use ,when Mobile Restart ,and Re-Schadule Alaram using NextOccurance Date.
@@ -73,10 +73,10 @@ public class MyReceiver extends BroadcastReceiver {
                 createNotification();
 
 			} else {
-				Log.d("tag", "Today Reminder Not Execute : " + mReminderDay);
+				//Log.d("tag", "Today Reminder Not Execute : " + mReminderDay);
 			}
 		} else {
-			Log.d("tag", "Alaram Not Execute");
+			//Log.d("tag", "Alaram Not Execute");
 		}
 
 	}
@@ -130,11 +130,11 @@ public class MyReceiver extends BroadcastReceiver {
 					+ c.get(Calendar.YEAR) + " " + c.get(Calendar.HOUR) + ":"
 					+ c.get(Calendar.MINUTE);
 		}
-		System.out.println("Next Occerence Date ......" + nextOccerenceDate);
-		Log.d("tag", "Next Occerence Date ......" + nextOccerenceDate);
+		//System.out.println("Next Occerence Date ......" + nextOccerenceDate);
+		//Log.d("tag", "Next Occerence Date ......" + nextOccerenceDate);
 		int effectedRow = mDatasource.updateNextOccerence(alarmId,
 				nextOccerenceDate);
-		Log.d("tag", "NextOccurance is : " + effectedRow);
+		//Log.d("tag", "NextOccurance is : " + effectedRow);
 		mDatasource.close();
 	}
 }
