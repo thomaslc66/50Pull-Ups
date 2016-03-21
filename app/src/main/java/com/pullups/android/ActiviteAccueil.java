@@ -292,30 +292,24 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
             Toast.makeText(getApplicationContext(),"INFO",Toast.LENGTH_SHORT).show();
 
             /* Affichage de la boîte de dialogue pour l'info */
-            String niveauChoisi = String.format(getString(R.string.niveauSelectionne), flt_niveau);
+            String dialogText = getString(R.string.niveauSelectionne);
 
             final Dialog dialogInfo = new Dialog(getApplicationContext());
-            dialogInfo.setContentView(R.layout.);
+            dialogInfo.setContentView(R.layout.dialogInfo);
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext())
-            .setTitle("Information");, AlertDialog.BUTTON_POSITIVE)
-                                .setTitleText(getString(R.string.congratulations))
-                                .setContentText(niveauChoisi)
-                                .setConfirmClickListener(new AlertDialog().OnSweetClickListener() {
-                                    @Override
-                                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+            TextView texte = (TextView) dialogInfo.findViewById(R.id.txt_dialogInfo);
+            texte.setText(dialogText);
 
-                                        sweetAlertDialog.dismissWithAnimation();
+            Button btn_dialogInfo = (Button) dialogInfo.findViewById(R.id.btnOkForReminderDialog);
+            btn_dialogInfo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialogInfo.dismiss();
+                    dialogInfo.cancel();
+                }
+            });
 
-                                        //démarrage et lancement de l'accueil
-                                        Intent accueil = new Intent(ActiviteTest.this, ActiviteAccueil.class);
-                                        accueil.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                                        startActivity(accueil);
-                                        //on tue l'activité
-                                        finish();
-                                    }
-                                });
-                        alertNiveau.show();
+
 
         }else if (view == itemRate){
             Uri uri = Uri.parse("market://details?id=" + getApplicationContext().getPackageName());
