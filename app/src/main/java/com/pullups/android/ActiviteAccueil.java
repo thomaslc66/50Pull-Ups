@@ -280,14 +280,15 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
      ************************************************************************/
     @Override
     public void onClick(View view) {
-        //action lors du click dans le menu alarme
+        //action lors du click dans le menu sur "alarme"
         if (view == itemAlarme){
             //Permet de régler une alarme pour l'entraînement
             Intent alarme = new Intent(getApplicationContext(), AlarmActivity.class);
             startActivity(alarme);
             finish();
 
-        }else if (view == itemAbout){
+        }//action lors du click dans le menu sur "info"
+        else if (view == itemAbout){
             /* Affichage de la boîte de dialogue pour l'info */
             String dialogText = getString(R.string.niveauSelectionne);
 
