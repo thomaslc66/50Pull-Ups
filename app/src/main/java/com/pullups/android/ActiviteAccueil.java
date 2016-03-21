@@ -13,6 +13,8 @@
 package com.pullups.android;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -286,7 +288,34 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
             finish();
 
         }else if (view == itemAbout){
+            //gestion du clic sur le menu "INFO"
             Toast.makeText(getApplicationContext(),"INFO",Toast.LENGTH_SHORT).show();
+
+            /* Affichage de la boîte de dialogue pour l'info */
+            String niveauChoisi = String.format(getString(R.string.niveauSelectionne), flt_niveau);
+
+            final Dialog dialogInfo = new Dialog(getApplicationContext());
+            dialogInfo.setContentView(R.layout.);
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext())
+            .setTitle("Information");, AlertDialog.BUTTON_POSITIVE)
+                                .setTitleText(getString(R.string.congratulations))
+                                .setContentText(niveauChoisi)
+                                .setConfirmClickListener(new AlertDialog().OnSweetClickListener() {
+                                    @Override
+                                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+
+                                        sweetAlertDialog.dismissWithAnimation();
+
+                                        //démarrage et lancement de l'accueil
+                                        Intent accueil = new Intent(ActiviteTest.this, ActiviteAccueil.class);
+                                        accueil.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                                        startActivity(accueil);
+                                        //on tue l'activité
+                                        finish();
+                                    }
+                                });
+                        alertNiveau.show();
 
         }else if (view == itemRate){
             Uri uri = Uri.parse("market://details?id=" + getApplicationContext().getPackageName());

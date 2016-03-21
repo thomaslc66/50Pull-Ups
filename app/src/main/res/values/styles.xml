@@ -23,11 +23,11 @@
     </style>
 
     <style name="RobotoTextView" parent="@android:style/Widget.TextView">
-        <item name="com.pullups.thomas.pullup:fontRoboto">fonts/Roboto-Light.ttf</item>
+        <item name="com.pullups.android:fontRoboto">fonts/Roboto-Light.ttf</item>
     </style>
 
     <style name="BostonTextView" parent="@android:style/Widget.TextView">
-        <item name="com.pullups.thomas.pullup:fontBoston">fonts/Boston.ttf</item>
+        <item name="com.pullups.android:fontBoston">fonts/Boston.ttf</item>
     </style>
 
     <style name="Theme.Transparent" parent="android:Theme">

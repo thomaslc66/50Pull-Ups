@@ -42,7 +42,7 @@ public class Exercices extends Activity {
         String[] niveauTraction
                 = {"Débutant", "Standard"   , "Avancé"          , "Avancé"              , "Intermédiaire"       };
         String[] codeVideo
-                = {"CgE_UY7wW1w"            , "yhyJ0tBcgJE"     , "VJ8EhO5kW-w"         , "oviw1pJ5M-c"         };
+                = {"CgE_UY7wW1w"            , "yhyJ0tBcgJE"     , "oviw1pJ5M-c"         , "VJ8EhO5kW-w"         };
 
         exoListView = (ListView) findViewById(R.id.exoListView);
 
