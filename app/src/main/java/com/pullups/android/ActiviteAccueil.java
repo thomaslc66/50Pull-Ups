@@ -288,9 +288,6 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
             finish();
 
         }else if (view == itemAbout){
-            //gestion du clic sur le menu "INFO"
-            Toast.makeText(getApplicationContext(),"INFO",Toast.LENGTH_SHORT).show();
-
             /* Affichage de la boîte de dialogue pour l'info */
             String dialogText = getString(R.string.niveauSelectionne);
 
@@ -309,7 +306,7 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
                 }
             });
 
-
+            dialogInfo.show(); //affichage de la dialogBox
 
         }else if (view == itemRate){
             Uri uri = Uri.parse("market://details?id=" + getApplicationContext().getPackageName());
