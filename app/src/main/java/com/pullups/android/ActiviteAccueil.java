@@ -305,7 +305,7 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
                 appVersion = String.format(getString(R.string.dialogInfo), packageInfo.versionName);
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
-                appVersion = "Erreur de récuperation";
+                appVersion = "!!!";
             }
 
             texte.setText(appVersion);

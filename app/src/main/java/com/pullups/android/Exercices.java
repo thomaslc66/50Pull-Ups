@@ -36,13 +36,26 @@ public class Exercices extends Activity {
         exoObjList = new ArrayList<>();
 
         String[] nomDesExercices
-                = {"Négatives"              , "Chin-ups"        , "Wide Pull-ups"       , "Military Pull-up"    };
+                = {getString(R.string.maj_negatives)   ,
+                   getString(R.string.maj_chin_ups)    ,
+                   getString(R.string.maj_wide_pull_up),
+                    "Military Pull-up"    };
         String[] musclesTravailles
-                = {"Biceps, Grand dorsal, " , "Biceps, Trapèze" , "Trapèze, Romboïdes"  , "Trapèze"             };
+                = { getString(R.string.muscles_negatives),
+                    getString(R.string.muscles_chin_ups) ,
+                    "Trapèze, Romboïdes"  ,
+                    "Trapèze"             };
         String[] niveauTraction
-                = {"Débutant", "Standard"   , "Avancé"          , "Avancé"              , "Intermédiaire"       };
+                = { "Débutant"      ,
+                    "Standard"      ,
+                    "Avancé"        ,
+                    "Avancé"        ,
+                    "Intermédiaire" };
         String[] codeVideo
-                = {"CgE_UY7wW1w"            , "yhyJ0tBcgJE"     , "oviw1pJ5M-c"         , "VJ8EhO5kW-w"         };
+                = { "CgE_UY7wW1w" ,
+                    "yhyJ0tBcgJE" ,
+                    "oviw1pJ5M-c" ,
+                    "VJ8EhO5kW-w" };
 
         exoListView = (ListView) findViewById(R.id.exoListView);
 

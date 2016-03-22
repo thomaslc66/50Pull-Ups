@@ -26,7 +26,6 @@ public class ExercicesAdapter extends BaseAdapter{
     private final ArrayList<ExerciceObject> exerciceObjectArrayList;
     private final LayoutInflater mInflater;
 
-
     public ExercicesAdapter(Context context, ArrayList<ExerciceObject> exerciceObjectArrayList){
         this.mInflater = LayoutInflater.from(context);
         this.exerciceObjectArrayList = exerciceObjectArrayList;
@@ -65,27 +64,25 @@ public class ExercicesAdapter extends BaseAdapter{
         final ImageView video;
 
         if (convertView == null){
-            convertView  = mInflater.inflate(R.layout.exercice_list_item,parent,false);
+            convertView = mInflater.inflate(R.layout.exercice_list_item,parent,false);
 
-            title = (TextView) convertView.findViewById(R.id.textView_titre_exo);
-            video = (ImageView) convertView.findViewById(R.id.exoListView);
-            muscles = (TextView) convertView.findViewById(R.id.textViewMuscle);
-            intensity = (TextView) convertView.findViewById(R.id.textViewIntensity);
+            title     = (TextView)  convertView.findViewById(R.id.textView_titre_exo);
+            video     = (ImageView) convertView.findViewById(R.id.exoListView);
+            muscles   = (TextView)  convertView.findViewById(R.id.textViewMuscle);
+            intensity = (TextView)  convertView.findViewById(R.id.txtView_difficulty);
             convertView.setTag(new ViewHolder(title, muscles, intensity, video));
 
         }else{
             ViewHolder viewHolder = (ViewHolder) convertView.getTag();
-            title = viewHolder.txtViewTilte;
-            video = viewHolder.videoView;
-            muscles = viewHolder.muscles;
+            title     = viewHolder.txtViewTilte;
+            video     = viewHolder.videoView;
+            muscles   = viewHolder.muscles;
             intensity = viewHolder.intensity;
         }
 
         title.setText(exerciceObjectArrayList.get(position).getTitle());
         muscles.setText(exerciceObjectArrayList.get(position).getMuscles());
         intensity.setText(exerciceObjectArrayList.get(position).getIntensity());
-
-
 
         video.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,9 +109,9 @@ public class ExercicesAdapter extends BaseAdapter{
 
         public ViewHolder(TextView txtViewTilte, TextView muscles, TextView intensity, ImageView video){
             this.txtViewTilte = txtViewTilte;
-            this.videoView = video;
-            this.muscles = muscles;
-            this.intensity = intensity;
+            this.videoView    = video;
+            this.muscles      = muscles;
+            this.intensity    = intensity;
         }
     }
 }

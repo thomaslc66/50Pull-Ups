@@ -109,4 +109,9 @@
     <string name="reminderNotSet">Erreur lors de l\'ajout du rappel</string>
     <string name="heure_alarme">10:00</string>
     <string name="dialogInfo">Version de l\'application: %1$s \nContact: pullups50@gmail.com\n</string>
+    <string name="maj_negatives">Négatives</string>
+    <string name="muscles_chin_ups">Biceps, Trapèze</string>
+    <string name="muscles_negatives">Biceps, Grand dorsal</string>
+    <string name="maj_chin_ups">Traction pronation</string>
+    <string name="maj_wide_pull_up">Traction prise large</string>
 </resources>

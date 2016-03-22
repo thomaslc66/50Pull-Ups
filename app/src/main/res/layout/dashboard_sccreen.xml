@@ -31,9 +31,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:orientation="horizontal"
-                android:padding="3dp"
                 android:layout_weight="1"
-                android:gravity="center">
+                android:gravity="center"
+                android:paddingTop="3dp"
+                android:paddingRight="3dp"
+                android:paddingBottom="3dp">
 
                 <CheckBox
                     android:layout_width="0dp"
@@ -43,13 +45,14 @@
                     android:layout_marginTop="3dp"
                     android:layout_marginRight="15dp"
                     android:textColor="@color/bg"
-                    android:padding="3dp"
                     android:id="@+id/cbLundiForDashboard"
                     android:layout_weight="1"
                     android:gravity="left|center"
-                    android:paddingLeft="8dp"
                     android:text="@string/Lundi"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:paddingTop="3dp"
+                    android:paddingRight="3dp"
+                    android:paddingBottom="3dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -80,13 +83,14 @@
                     android:layout_marginTop="3dp"
                     android:layout_marginRight="15dp"
                     android:textColor="@color/bg"
-                    android:padding="3dp"
                     android:id="@+id/cbMardiForDashboard"
                     android:layout_weight="1"
                     android:gravity="left|center"
-                    android:paddingLeft="8dp"
                     android:text="@string/Mardi"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:paddingTop="3dp"
+                    android:paddingRight="3dp"
+                    android:paddingBottom="3dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -107,7 +111,10 @@
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="3dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:paddingTop="3dp"
+                android:paddingRight="3dp"
+                android:paddingBottom="3dp">
 
                 <CheckBox
                     android:layout_width="0dp"
@@ -117,12 +124,13 @@
                     android:layout_marginTop="3dp"
                     android:layout_marginRight="15dp"
                     android:textColor="@color/bg"
-                    android:padding="3dp"
                     android:id="@+id/cbMercrediForDashboard"
                     android:layout_weight="1"
                     android:gravity="left|center"
-                    android:paddingLeft="8dp"
-                    android:text="@string/Mercredi" />
+                    android:text="@string/Mercredi"
+                    android:paddingTop="3dp"
+                    android:paddingRight="3dp"
+                    android:paddingBottom="3dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -153,12 +161,13 @@
                     android:layout_marginTop="3dp"
                     android:layout_marginRight="15dp"
                     android:textColor="@color/bg"
-                    android:padding="3dp"
                     android:id="@+id/cbJeudiForDashboard"
                     android:layout_weight="1"
                     android:gravity="left|center"
-                    android:paddingLeft="8dp"
-                    android:text="@string/Jeudi" />
+                    android:text="@string/Jeudi"
+                    android:paddingTop="3dp"
+                    android:paddingRight="3dp"
+                    android:paddingBottom="3dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -178,8 +187,10 @@
                 android:layout_marginBottom="1dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:padding="3dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:paddingTop="3dp"
+                android:paddingRight="3dp"
+                android:paddingBottom="3dp">
 
                 <CheckBox
                     android:layout_width="0dp"
@@ -189,12 +200,13 @@
                     android:layout_marginTop="3dp"
                     android:layout_marginRight="15dp"
                     android:textColor="@color/bg"
-                    android:padding="3dp"
                     android:id="@+id/cbVendrediForDashboard"
                     android:layout_weight="1"
                     android:gravity="left|center"
-                    android:paddingLeft="8dp"
-                    android:text="@string/Vendredi" />
+                    android:text="@string/Vendredi"
+                    android:paddingTop="3dp"
+                    android:paddingRight="3dp"
+                    android:paddingBottom="3dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -215,8 +227,10 @@
                 android:layout_marginBottom="1dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:padding="3dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:paddingTop="3dp"
+                android:paddingRight="3dp"
+                android:paddingBottom="3dp">
 
                 <CheckBox
                     android:layout_width="0dp"
@@ -226,12 +240,13 @@
                     android:layout_marginTop="3dp"
                     android:layout_marginRight="15dp"
                     android:textColor="@color/bg"
-                    android:padding="3dp"
                     android:id="@+id/cbSamediForDashboard"
                     android:layout_weight="1"
                     android:gravity="left|center"
-                    android:paddingLeft="8dp"
-                    android:text="@string/Samedi" />
+                    android:text="@string/Samedi"
+                    android:paddingTop="3dp"
+                    android:paddingRight="3dp"
+                    android:paddingBottom="3dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -264,12 +279,13 @@
                     android:layout_marginTop="3dp"
                     android:layout_marginRight="15dp"
                     android:textColor="@color/bg"
-                    android:padding="3dp"
                     android:id="@+id/cbDimancheForDashboard"
                     android:gravity="left|center"
-                    android:paddingLeft="8dp"
                     android:text="@string/Dimanche"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:paddingTop="3dp"
+                    android:paddingRight="3dp"
+                    android:paddingBottom="3dp" />
 
                 <TextView
                     android:layout_width="wrap_content"

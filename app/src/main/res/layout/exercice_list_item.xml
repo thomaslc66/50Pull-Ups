@@ -63,7 +63,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:text="Facile"
                 android:id="@+id/txtView_difficulty"
                 android:layout_toRightOf="@+id/textViewIntensity"
                 android:layout_alignTop="@+id/imageView_Intensity"
