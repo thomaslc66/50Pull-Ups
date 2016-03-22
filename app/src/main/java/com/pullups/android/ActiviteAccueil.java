@@ -13,17 +13,19 @@
 package com.pullups.android;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -292,11 +294,21 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
             /* Affichage de la boîte de dialogue pour l'info */
             String dialogText = getString(R.string.niveauSelectionne);
 
-            final Dialog dialogInfo = new Dialog(getApplicationContext());
-            dialogInfo.setContentView(R.layout.dialogInfo);
+            final Dialog dialogInfo = new Dialog(ActiviteAccueil.this);
+            dialogInfo.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialogInfo.setContentView(R.layout.dialoginfo);
 
             TextView texte = (TextView) dialogInfo.findViewById(R.id.txt_dialogInfo);
-            texte.setText(dialogText);
+            String appVersion;
+            try {
+                PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(),0);
+                appVersion = String.format(getString(R.string.dialogInfo), packageInfo.versionName);
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                appVersion = "Erreur de récuperation";
+            }
+
+            texte.setText(appVersion);
 
             Button btn_dialogInfo = (Button) dialogInfo.findViewById(R.id.btnOkForReminderDialog);
             btn_dialogInfo.setOnClickListener(new View.OnClickListener() {

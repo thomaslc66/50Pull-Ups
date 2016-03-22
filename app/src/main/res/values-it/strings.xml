@@ -81,4 +81,5 @@
     <string name="reminderSet">Avviso aggiunto on successo</string>
     <string name="reminderNotSet">Error, avviso non installato</string>
     <string name="heure_alarme">10:00</string>
+    <string name="dialogInfo">Version de l\'application: %1$s</string>
 </resources>
