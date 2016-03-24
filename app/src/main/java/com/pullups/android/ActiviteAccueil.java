@@ -296,7 +296,7 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
 
             final Dialog dialogInfo = new Dialog(ActiviteAccueil.this);
             dialogInfo.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialogInfo.setContentView(R.layout.dialogInfo);
+            dialogInfo.setContentView(R.layout.dialoginfo);
 
             TextView texte = (TextView) dialogInfo.findViewById(R.id.txt_dialogInfo);
             String information = getString(R.string.information);
