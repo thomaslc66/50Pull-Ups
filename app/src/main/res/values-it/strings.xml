@@ -81,10 +81,14 @@
     <string name="reminderSet">Avviso aggiunto on successo</string>
     <string name="reminderNotSet">Error, avviso non installato</string>
     <string name="heure_alarme">10:00</string>
-    <string name="dialogInfo">Version de l\'application: %1$s\nContacto: pullups50@gmail.com\n</string>
+    <string name="dialogInfo">Versione del l\'app: %1$s\nNome del pacagio: %2$s\nEmail: pullups50@gmail.com\n</string>
     <string name="maj_negatives">Negative</string>
-    <string name="muscles_chin_ups">Bicipiti, Trapezio</string>
-    <string name="muscles_negatives">Bicipiti, Lunghissimo dorso</string>
+    <string name="muscles_chin_ups">Bicipite, Romboide</string>
+    <string name="muscles_negatives">Bicipite, Trapezio</string>
     <string name="maj_chin_ups">Chin ups</string>
     <string name="maj_wide_pull_up">Trazioni presa larga</string>
+    <string name="maj_military_pullup">Trazioni militari</string>
+    <string name="muscle_wide">Bicipite, Gran dorsale</string>
+    <string name="muscles_military">Spalle, Trapezio</string>
+    <string name="information">Ciao tutti</string>
 </resources>

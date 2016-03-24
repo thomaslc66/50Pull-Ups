@@ -62,6 +62,7 @@
 
     <dimen name="dialogWidthsize">325dp</dimen>
     <dimen name="dialogHeight">150dp</dimen>
+
     <dimen name="pullup_negative_text_size">35dp</dimen>
     <dimen name="padding_stats_title">20dp</dimen>
     <dimen name="stats_title_text_size">25dp</dimen>

@@ -299,16 +299,20 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
             dialogInfo.setContentView(R.layout.dialoginfo);
 
             TextView texte = (TextView) dialogInfo.findViewById(R.id.txt_dialogInfo);
+            String information = getString(R.string.information);
             String appVersion;
             try {
-                PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(),0);
-                appVersion = String.format(getString(R.string.dialogInfo), packageInfo.versionName);
+                PackageInfo packageInfoVersion = getPackageManager().getPackageInfo(getPackageName(),0);
+                String packageName             = getPackageName();
+                appVersion = String.format(getString(R.string.dialogInfo),
+                        packageInfoVersion.versionName,
+                        packageName);
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
                 appVersion = "!!!";
-            }
+             }
 
-            texte.setText(appVersion);
+            texte.setText(appVersion + information);
 
             Button btn_dialogInfo = (Button) dialogInfo.findViewById(R.id.btnOkForReminderDialog);
             btn_dialogInfo.setOnClickListener(new View.OnClickListener() {

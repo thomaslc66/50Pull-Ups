@@ -39,12 +39,12 @@ public class Exercices extends Activity {
                 = {getString(R.string.maj_negatives)   ,
                    getString(R.string.maj_chin_ups)    ,
                    getString(R.string.maj_wide_pull_up),
-                    "Military Pull-up"    };
+                    getString(R.string.maj_military_pullup)};
         String[] musclesTravailles
                 = { getString(R.string.muscles_negatives),
                     getString(R.string.muscles_chin_ups) ,
-                    "Trapèze, Romboïdes"  ,
-                    "Trapèze"             };
+                    getString(R.string.muscle_wide)  ,
+                    getString(R.string.muscles_military)};
         String[] niveauTraction
                 = { "Débutant"      ,
                     "Standard"      ,

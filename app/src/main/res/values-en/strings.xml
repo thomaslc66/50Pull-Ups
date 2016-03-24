@@ -18,7 +18,7 @@
     <string name="complet">Complete</string>
     <string name="conseil">Advise</string>
     <string name="deleteData">Reset</string>
-    <string name="difficulty">Difficulty</string>
+    <string name="difficulty">Difficulty:</string>
     <string name="error_edtText_empty">Pull-up field empty</string>
     <string name="exercices">Exercices</string>
     <string name="lastDay">Congratulations, you have terminated the training scheduel. You should be able to do 50 pullups in a row</string>
@@ -81,10 +81,14 @@
     <string name="reminderSet">Reminder set Successfully!</string>
     <string name="reminderNotSet">Reminder Not set Successfully!</string>
     <string name="heure_alarme">10:00</string>
-    <string name="dialogInfo">Version number: %1$s\nContact: pullups50@gmail.com\n</string>
+    <string name="dialogInfo">Version number: %1$s\nPackage name: %2$s\nEmail: pullups50@gmail.com\n</string>
     <string name="maj_negatives">Negatives</string>
-    <string name="muscles_chin_ups">Biceps, Trapezius</string>
-    <string name="muscles_negatives">Biceps, Latissimus dorsi</string>
+    <string name="muscles_chin_ups">Biceps, Rhomboid major</string>
+    <string name="muscles_negatives">Biceps, Trapezius</string>
     <string name="maj_chin_ups">Chin ups</string>
     <string name="maj_wide_pull_up">Wide Pull-up</string>
+    <string name="maj_military_pullup">Military Pull-up</string>
+    <string name="muscle_wide">Biceps, Latissimus dorsi</string>
+    <string name="muscles_military">Shoulders, Trapezius</string>
+    <string name="information">50  Pull ups is an application allowing you to reach 50 Pull ups after some trainings. Don\'t forget to warm up before every training day. Please contact developper if you are facing any bugs or troubles with the app.</string>
 </resources>

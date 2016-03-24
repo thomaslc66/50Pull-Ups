@@ -108,10 +108,14 @@
     <string name="reminderSet">Rappel ajouté avec succès!</string>
     <string name="reminderNotSet">Erreur lors de l\'ajout du rappel</string>
     <string name="heure_alarme">10:00</string>
-    <string name="dialogInfo">Version de l\'application: %1$s \nContact: pullups50@gmail.com\n</string>
+    <string name="dialogInfo">Version de l\'application: %1$s \nNom du package: %2$s\nEmail: pullups50@gmail.com\n</string>
     <string name="maj_negatives">Négatives</string>
-    <string name="muscles_chin_ups">Biceps, Trapèze</string>
-    <string name="muscles_negatives">Biceps, Grand dorsal</string>
+    <string name="muscles_chin_ups">Biceps, Rhomboïdes</string>
+    <string name="muscles_negatives">Biceps, Trapèze</string>
     <string name="maj_chin_ups">Traction pronation</string>
     <string name="maj_wide_pull_up">Traction prise large</string>
+    <string name="maj_military_pullup">Traction militaire</string>
+    <string name="muscle_wide">Bicieps, Grand dorsal</string>
+    <string name="muscles_military">Epaules, Trapèze</string>
+    <string name="information">50 tractions est une application vous permettant d\'atteindre 50 tractions après plusieurs entrainements. N\'oubliez pas de vous échauffez avant chaque entraînement Merci de prendre contact avec le développeur de l\'application en cas de bug ou erreur dans l\'application afin que cela puisse être corrigé au plus vite.</string>
 </resources>
