@@ -296,7 +296,7 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
 
             final Dialog dialogInfo = new Dialog(ActiviteAccueil.this);
             dialogInfo.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialogInfo.setContentView(R.layout.dialoginfo);
+            dialogInfo.setContentView(R.layout.dialogInfo);
 
             TextView texte = (TextView) dialogInfo.findViewById(R.id.txt_dialogInfo);
             String information = getString(R.string.information);
@@ -312,7 +312,7 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
                 appVersion = "!!!";
              }
 
-            texte.setText(appVersion + information);
+            texte.setText(information + appVersion);
 
             Button btn_dialogInfo = (Button) dialogInfo.findViewById(R.id.btnOkForReminderDialog);
             btn_dialogInfo.setOnClickListener(new View.OnClickListener() {
