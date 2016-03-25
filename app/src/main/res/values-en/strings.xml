@@ -91,4 +91,8 @@
     <string name="muscle_wide">Biceps, Latissimus dorsi</string>
     <string name="muscles_military">Shoulders, Trapezius</string>
     <string name="information">50  Pull ups is an application allowing you to reach 50 Pull ups after some trainings. Don\'t forget to warm up before every training day. Please contact developper if you are facing any bugs or troubles with the app.</string>
+    <string name="niveau_debutant">Beginner</string>
+    <string name="niveau_standard">Standard</string>
+    <string name="niveau_avance">Advanced</string>
+    <string name="niveau_intermediaire">Intermediate</string>
 </resources>

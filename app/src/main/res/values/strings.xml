@@ -118,4 +118,8 @@
     <string name="muscle_wide">Bicieps, Grand dorsal</string>
     <string name="muscles_military">Epaules, Trapèze</string>
     <string name="information">50 tractions est une application vous permettant d\'atteindre 50 tractions après plusieurs entrainements. N\'oubliez pas de vous échauffer avant chaque entraînement Merci de prendre contact avec le développeur de l\'application en cas de bug ou erreur dans l\'application afin que cela puisse être corrigé au plus vite.</string>
+    <string name="niveau_debutant">Débutant</string>
+    <string name="niveau_standard">Standard</string>
+    <string name="niveau_avance">Avancé</string>
+    <string name="niveau_intermediaire">Intermédiaire</string>
 </resources>

@@ -90,5 +90,9 @@
     <string name="maj_military_pullup">Trazioni militari</string>
     <string name="muscle_wide">Bicipite, Gran dorsale</string>
     <string name="muscles_military">Spalle, Trapezio</string>
-    <string name="information">Ciao tutti</string>
+    <string name="information">50 trazioni è un\'applicazione che vi permette, dopo una serie di allenamenti, di completare 50 trazioni. Non dimenticate di fare un riscaldamento prima dell\'allenamento et dello stretching subito dopo. Se doveste avere problemi con l\'applicazione contattate al più presto il developer affinché possa intervenire al più presto.</string>
+    <string name="niveau_debutant">Principiante</string>
+    <string name="niveau_standard">Standard</string>
+    <string name="niveau_avance">Avanzato</string>
+    <string name="niveau_intermediaire">Intermediario</string>
 </resources>

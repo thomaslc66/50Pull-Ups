@@ -46,11 +46,10 @@ public class Exercices extends Activity {
                     getString(R.string.muscle_wide)  ,
                     getString(R.string.muscles_military)};
         String[] niveauTraction
-                = { "Débutant"      ,
-                    "Standard"      ,
-                    "Avancé"        ,
-                    "Avancé"        ,
-                    "Intermédiaire" };
+                = { getString(R.string.niveau_debutant)      ,
+                    getString(R.string.niveau_standard)      ,
+                    getString(R.string.niveau_avance)        ,
+                    getString(R.string.niveau_intermediaire) };
         String[] codeVideo
                 = { "CgE_UY7wW1w" ,
                     "yhyJ0tBcgJE" ,
