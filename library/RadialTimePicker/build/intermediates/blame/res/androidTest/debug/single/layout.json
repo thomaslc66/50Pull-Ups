@@ -24,11 +24,11 @@
         "source": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\build\\intermediates\\bundles\\debug\\res\\layout\\mdtp_date_picker_dialog.xml"
     },
     {
-        "merged": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\mdtp_date_picker_selected_date.xml",
-        "source": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\build\\intermediates\\bundles\\debug\\res\\layout\\mdtp_date_picker_selected_date.xml"
-    },
-    {
         "merged": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\mdtp_year_label_text_view.xml",
         "source": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\build\\intermediates\\bundles\\debug\\res\\layout\\mdtp_year_label_text_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\mdtp_date_picker_selected_date.xml",
+        "source": "C:\\Users\\Thomas\\Documents\\Android\\Pullup\\library\\RadialTimePicker\\build\\intermediates\\bundles\\debug\\res\\layout\\mdtp_date_picker_selected_date.xml"
     }
 ]
