@@ -17,8 +17,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
 import com.pullups.android.adapter.ExercicesAdapter;
 import com.pullups.android.model.ExerciceObject;
+import com.tappx.TAPPXAdInterstitial;
 
 import java.util.ArrayList;
 
@@ -29,10 +32,22 @@ public class Exercices extends Activity {
     private ArrayList<ExerciceObject>   exoObjList;
     private ExerciceObject              objExercice;
 
+    private PublisherInterstitialAd publisherInterstitialAd;
+    private final String TAPPX_KEY = getString(R.string.tappx_key);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercices);
+
+        publisherInterstitialAd = TAPPXAdInterstitial.Configure(this, TAPPX_KEY,
+                new AdListener() {
+                    @Override public void onAdLoaded() {
+                        TAPPXAdInterstitial.Show(publisherInterstitialAd);
+                    }
+                });
+
+
         exoObjList = new ArrayList<>();
 
         String[] nomDesExercices
