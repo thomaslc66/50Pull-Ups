@@ -51,7 +51,6 @@ public class TappxActivity extends Activity{
             public void onAdLoaded() {
                 super.onAdLoaded();
                 Log.w("TAG", "add Loaded");
-
             }
         });
     }//onCreate
@@ -64,6 +63,4 @@ public class TappxActivity extends Activity{
             Toast.makeText(getApplicationContext(), "Ad did not load", Toast.LENGTH_SHORT).show();
         }
     }
-
-
 }//class TappxActivity
