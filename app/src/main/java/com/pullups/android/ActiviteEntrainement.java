@@ -15,6 +15,7 @@ package com.pullups.android;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -30,13 +31,14 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.pullups.android.Realm.JourEntainement;
 import com.pullups.android.Realm.JourEntrainementDB;
 import com.pullups.android.TextView.FontFitTextView;
 
 import java.util.List;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 import static android.text.TextUtils.split;
 
@@ -47,13 +49,14 @@ public class ActiviteEntrainement extends Activity {
     //Variables
     private         int     compteurEntrainement    = 1;
     private final   int     REQUESTCODEWORKOUT      = 1;
+    private         int     compteur_ad;
     private         int     sommeDesTractionsDuJour;
     private         int     jourEnCours;
-    private  List<String>   listeDesSeriesString;
-    private         float   flt_niveau;
     private         int     int_jourDuNiveau;
     private         boolean doubleBackExit;
     private         boolean isCanceled;
+    private  List<String>   listeDesSeriesString;
+    private         float   flt_niveau;
 
     private final   int     ZERO                    = 0;
     private final   int     UN                      = 1;
@@ -70,6 +73,7 @@ public class ActiviteEntrainement extends Activity {
     private final   String  str_JourEnCours          = "jourEnCours";
     private final   String  str_compteurEntrainement = "compteurEntrainement";
     private final   String  str_NiveauEnCours        = "niveauEnCours";
+    private final   String  str_ad                   = "compteur_ad";
 
     //Objects
     private     IntentExtraRunnable runnable;
@@ -123,6 +127,7 @@ public class ActiviteEntrainement extends Activity {
             public void onClick(View view) {
             Intent activiteCompteARebours = new Intent(ActiviteEntrainement.this, ActiviteCompteARebours.class);
             activiteCompteARebours.putExtra(str_compteurEntrainement, compteurEntrainement);
+            activiteCompteARebours.putExtra(str_ad, compteur_ad);
             //StartActivityForResult car on attend un retour
             activiteCompteARebours.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivityForResult(activiteCompteARebours, REQUESTCODEWORKOUT);
@@ -147,6 +152,10 @@ public class ActiviteEntrainement extends Activity {
             if(isCanceled){
                 runnable = null;
             }else {
+
+                SharedPreferences preferencesPartagees
+                             = getSharedPreferences(str_nomDesPreferences,ZERO);
+                compteur_ad  = preferencesPartagees.getInt(str_ad, ZERO);
 
                 Intent intent           = getIntent(); //Recuperation des Extras
                 jourEnCours             = intent.getExtras().getInt(str_JourEnCours); //joursEnCours
@@ -225,6 +234,10 @@ public class ActiviteEntrainement extends Activity {
                 case CINQ:
                     changerLaCouleurDuFond(viewSerie4, viewSerie5);
                     affichageNegativeOuTractions(listeDesSeriesString.get(QUATRE));
+
+                    SharedPreferences.Editor editor = getSharedPreferences(str_nomDesPreferences, MODE_PRIVATE).edit();
+                    editor.putInt(str_ad, ++compteur_ad); //enregistre le compteur de publicité
+                    editor.apply();
                     //on change le btnComplet afin qu'il permette à l'utilisateur de revenir à l'acceuil, car il
 
                     btnComplet.setText(R.string.end_training); //entrainement terminé, change le texte du bouton
@@ -238,11 +251,11 @@ public class ActiviteEntrainement extends Activity {
                             JourEntrainementDB t = new JourEntrainementDB(ActiviteEntrainement.this);
                             t.miseAJourDuTotal(jourEnCours, sommeDesTractionsDuJour); //ajoute la somme au jour
 
-                            activiteAvantEntrainement.putExtra(str_NombreDeTractions, t.trouverLeRecordDeTractions(t.trouveJourAvecIdentifiant(jourEnCours)));
+                            activiteAvantEntrainement.putExtra(str_NombreDeTractions,
+                                    t.trouverLeRecordDeTractions(t.trouveJourAvecIdentifiant(jourEnCours)));
                             activiteAvantEntrainement.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                             setResult(RESULT_OK, activiteAvantEntrainement);
-
-                            finish();//
+                            finish();
                         }//onClick
                     });
                     break;
@@ -337,22 +350,22 @@ public class ActiviteEntrainement extends Activity {
                 @Override
                 public void onGlobalLayout()
                 {
-                    //est appelé après que le layout est contruit mais avant l'affichage4
-                    if (Build.VERSION.SDK_INT > Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
-                        linearLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                    } else {
-                        linearLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                    }
+                //est appelé après que le layout est contruit mais avant l'affichage4
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
+                    linearLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                } else {
+                    linearLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                }
 
-                    viewSerieEnCours.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+                viewSerieEnCours.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
-                    int totalWidth = linearLayout.getWidth();
-                    DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-                    float value = totalWidth / TROIS ;
+                int totalWidth = linearLayout.getWidth();
+                DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+                float value = totalWidth / TROIS ;
 
-                    RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) viewSerieEnCours.getLayoutParams();
-                    params.width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, value,displayMetrics);
-                    viewSerieEnCours.setLayoutParams(params);
+                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) viewSerieEnCours.getLayoutParams();
+                params.width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, value,displayMetrics);
+                viewSerieEnCours.setLayoutParams(params);
                 }
             });
         }
@@ -366,32 +379,37 @@ public class ActiviteEntrainement extends Activity {
      ********************************************************************/
     @Override
     public void onBackPressed(){
-        //lors du premier passage doubleBackExit vaut false
-        //c'est lors du second passage qu'il vaudra true et ce qui est dans le if
-        //sera alors effectué
-        if(doubleBackExit){
-            //called to quit
-            Intent intent_preWorkout = new Intent(this, ActiviteAvantEntrainement.class);
-            intent_preWorkout.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            startActivity(intent_preWorkout);
-            finish();
+        //retour avec sweetAlertDialog WARNING
+        if(compteurEntrainement == 1){
+            retour();
+        }else{
+            new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText(getString(R.string.str_BackTitle))
+                .setConfirmText(getString(R.string.validate))
+                .setCancelText(getString(R.string.annuler))
+                .setContentText(getString(R.string.str_backToMain))
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                        sweetAlertDialog.dismiss();
+                    }
+                })
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            retour();
+                        }
+                }).show();
         }
-
-        //après le premier passage dans la boucle on change la valeur de doubleBackExit
-        this.doubleBackExit = true;
-
-        //display a Toast telling the user to press again if he wants to leave
-        String str_backToMain = getResources().getString(R.string.str_backToMain);
-        Toast.makeText(this, str_backToMain, Toast.LENGTH_SHORT).show();
-
-        new android.os.Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                doubleBackExit = false;
-            }
-        },DELAIS_ATTENTE);
     }//onBackPressed
 
+
+    private void retour(){
+        Intent intent_preWorkout = new Intent(this, ActiviteAvantEntrainement.class);
+        intent_preWorkout.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(intent_preWorkout);
+        finish();
+    }
 
     /**************************************************************************
      * onDestroy()
@@ -399,10 +417,9 @@ public class ActiviteEntrainement extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //getIntentExtra.interrupt();
+
         getSizeofRelativeLayout.interrupt();
         getSizeofRelativeLayout = null;
-        //getIntentExtra = null;
 
         if(runnable != null){
             handler.removeCallbacks(runnable);
@@ -410,5 +427,4 @@ public class ActiviteEntrainement extends Activity {
             runnable = null;
         }
     }
-
 }//class ActiviteEntrainement

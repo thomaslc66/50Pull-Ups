@@ -16,15 +16,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
-//import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.lang.ref.WeakReference;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
+
 import java.util.concurrent.TimeUnit;
+
+//import android.util.Log;
 
 public class ActiviteCompteARebours extends AdMobActivity {
 
@@ -32,20 +35,27 @@ public class ActiviteCompteARebours extends AdMobActivity {
     private       int       compteurTimer,
                             int_rowTime_display,
                             int_total_time_in_millis;
-    private       boolean   doubleBackExit;
-    private       boolean   bln_addTime              = false;
+    private       int       compteur_ad;
+    private       int       ad;
     private       int       pressed                  = 0;
     private final int       PERCENT                  = 120000;
     private final int       INT_MILLIS               = 1000;
     private final int       INTERVALLE               = 100;
     private final int       AJOUTE_30_SEC            = 30000;
+    private       boolean   doubleBackExit;
+    private       boolean   bln_addTime              = false;
+    private       boolean   tappxInterAdIsCanceled   = false;
     private final String    str_compteurEntrainement = "compteurEntrainement";
+    private final String    str_ad                   = "compteur_ad";
 
     private Handler         handler;
     private TimerRunnable   runnable;
     private Button          btn_passer;
     private TextView        txt_countDown;
     private ProgressBar     progressBar;
+    private TappxInterAd    tappxInterAd;
+    private Handler         handlertappxInterAd;
+    private PublisherInterstitialAd adInterstitial      = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,149 +68,199 @@ public class ActiviteCompteARebours extends AdMobActivity {
 
         int_total_time_in_millis = PERCENT;         //Temps total en mili secondes
         int_rowTime_display      = PERCENT;         //Temps total pour l'affichage
-        runnable                 = new TimerRunnable();
-        handler                  = new Handler();
-
 
         progressBar.setMax     (PERCENT);           //Valeur max de la progress bar = 2 minutes (120000 ms)
         progressBar.setProgress(PERCENT);           //Fixe la valeur de la progresse bar a 2 minutes
 
         Intent intent = getIntent();
-        compteurTimer = intent.getExtras().getInt(str_compteurEntrainement,1); //
+        compteurTimer = intent.getIntExtra(str_compteurEntrainement, 1);
+        compteur_ad   = intent.getIntExtra(str_ad, 0); //pour affiche admob ou tappx
 
-        //Run Timer
-        //call handler post delayed to resume the runnable
-        handler.postDelayed(runnable, 100);
-
+        //Ajoute 30 secondes au timer
         txt_countDown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 runnable.addTime();                                  //on stop le timer
-
                 handler.removeCallbacks(runnable);        //on annule les message du handler
+
                 int_total_time_in_millis =
                         runnable.getTimeInMillis() + AJOUTE_30_SEC ; //recupere le temps et ajoute 30 sec
                 bln_addTime              = false;                    //sinon le timer ne se lance pas
                 int_rowTime_display      = int_total_time_in_millis; //pour l'affiche du nouveau temps
-
-                //Log.d("TIMER", "redéfinition du timer");
-
                 progressBar.setMax(int_total_time_in_millis);        //fixe le max
                 progressBar.setProgress(int_total_time_in_millis);   //fixe la valeur de la progressBar
-
                 handler.postDelayed(runnable, INTERVALLE);           //relance le timer
             }
         });
 
-
         btn_passer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {                    //Action lors du click sur le boutton "passer"
-                if (runnable != null) {
+                if (runnable != null || runnable.isRunning()) {
                     runnable.killRunnable();                        //Retour à l'activite precedente
                 }
             }
         });
 
+        runnable                 = new TimerRunnable();
+        handler                  = new Handler();
+        handler.postDelayed(runnable, 100);
+
     }//onCreate
-
-/*******************************************************************************************************
- *
- * @ class Task
- * @ new Runnable
- *
- *******************************************************************************************************/
-private class TimerRunnable implements Runnable{
-
-    private final int      INT_SEC             = 60;
-    private       boolean  isCanceled          = false;
-    private       int      int_progress_value;
-    final         Vibrator vibreur             = (Vibrator) getSystemService(VIBRATOR_SERVICE);     //service de vibration
 
 
     @Override
-    public void run() {
+    protected void onResume() {
+        super.onResume();
 
-            //if time is added
-            if (bln_addTime) {
-                handler.removeCallbacksAndMessages(runnable);
-                runnable = null;
+        //Run Timer
+        //call handler post delayed to resume the runnable
+        //TODO empêcher l'appel au handler s'il existe déjà
+        if(!runnable.isRunning()){
+            runnable                 = new TimerRunnable();
+            handler                  = new Handler();
+            handler.postDelayed(runnable, 100);
+        }
 
-            }//if the timer is canceled or the total time = the progress time
-            else if (isCanceled || int_total_time_in_millis == int_progress_value) {
-                //set runnable to null
-                runnable = null;
+        //tappx
+        if (compteur_ad % 2 != 0) {
+            tappxInterAd = new TappxInterAd();
+            handlertappxInterAd = new Handler();
+            ad = 0;
+        }
+    }
 
-                vibreur.vibrate(200);
-                workoutIntent();
+    /*******************************************************************************************************
+     *
+     * @ class Task
+     * @ new Runnable
+     *
+     *******************************************************************************************************/
+    private class TimerRunnable implements Runnable{
 
-                //return
-                return;
-            } else {
+        private final int      INT_SEC             = 60;
+        private       boolean  isCanceled          = false;
+        private       int      int_progress_value;
+        final         Vibrator vibreur             = (Vibrator) getSystemService(VIBRATOR_SERVICE);     //service de vibration
 
-                //increment int_progess_value
-                int_progress_value += INTERVALLE;
+        @Override
+        public void run() {
 
-                //update the time in the screen for the countdown
-                int_rowTime_display -= INTERVALLE;
+                //if time is added
+                if (bln_addTime) {
+                    handler.removeCallbacksAndMessages(runnable);
+                    runnable = null;
 
-                progressBar.setSecondaryProgress(int_progress_value);
-                //Log.d("TIMER", "timer : " + int_rowTime_display);
-
-                String temps = String.format("%02d:%02d",
-                        TimeUnit.MILLISECONDS.toMinutes(int_rowTime_display),
-                        TimeUnit.MILLISECONDS.toSeconds(int_rowTime_display) -
-                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(int_rowTime_display)));
-
-                //get the time in seconds by dividing by 1000
-/*                int row_min = int_rowTime_display / INT_MILLIS;
-                String time = "" + row_min / INT_SEC + ":";
-                String sec = "" + row_min % INT_SEC;
-
-                if (row_min % INT_SEC < 10) {
-                    time += "0" + sec;
+                }//if the timer is canceled or the total time = the progress time
+                else if (isCanceled || int_total_time_in_millis == int_progress_value) {
+                    //set runnable to null
+                    runnable = null;
+                    vibreur.vibrate(200);
+                    workoutIntent();
+                    return;
                 } else {
-                    time += sec;
-                }*/
-                //divide row_min by 60 to get minutes. and row_min % 60 to get seconds
-                txt_countDown.setText(temps);
+                    int_progress_value  += INTERVALLE;  //on incremente le temps
+                    int_rowTime_display -= INTERVALLE; //on met à jour l'affichage
+                    progressBar.setSecondaryProgress(int_progress_value); //mise à jour de la progressBar
 
-                //controle le temps pour vibrer lors des 3 dernières secondes
-                //on utilise l'incrémentation de la progressbar pour être plus précis
-                //on prends 1 sentième avant pour anticiper le postDelayed de une seconde
-                /*if (int_progress_value == int_total_time_in_millis-1110 ||
-                        int_progress_value == int_total_time_in_millis-2110 ||
-                        int_progress_value == int_total_time_in_millis-3110){
-                  */
-                if (int_rowTime_display == 300 || int_rowTime_display == 200) {
-                    vibreur.vibrate(100);
+                    String temps = String.format("%02d:%02d",
+                            TimeUnit.MILLISECONDS.toMinutes(int_rowTime_display),
+                            TimeUnit.MILLISECONDS.toSeconds(int_rowTime_display) -
+                            TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(int_rowTime_display)));
+
+                    txt_countDown.setText(temps);       //affiche le temps restant
+
+                    //vibre lors des dernieres secondes
+                    if (int_rowTime_display == 300 || int_rowTime_display == 200) {
+                        vibreur.vibrate(100);
+                    }
+
+                    /* Affichage des publicités */
+                    if ((compteurTimer == 2 || compteurTimer == 4) && int_progress_value == 5000) {
+                        if (compteur_ad % 2 == 0) {
+                            showInterstitial();  //adMob
+                        }else{
+
+                            //handlertappxInterAd.post(tappxInterAd);
+                            final String TAPPX_KEY = "/120940746/Pub-9623-Android-3570";
+                            adInterstitial = com.tappx.TAPPXAdInterstitial.Configure(ActiviteCompteARebours.this, TAPPX_KEY,
+                                    new AdListener() {
+                                        @Override
+                                        public void onAdClosed() {
+                                            super.onAdClosed();
+                                            ad++;
+                                        }
+
+                                        @Override
+                                        public void onAdLoaded() {
+                                            com.tappx.TAPPXAdInterstitial.Show(adInterstitial);
+                                        }
+                                    });
+                        }
+                    }
                 }
 
-                /* show add 5 seconds after countDown start */
-                if ((compteurTimer == 2 || compteurTimer == 4) && int_progress_value == 5000) {
-                    showInterstitial();  //adMob
+                handler.postDelayed(this, INTERVALLE);
+        }//run
+
+        public void killRunnable(){
+            //when timer is paused or stopped isCanceled is set to true.
+            isCanceled = true;
+        }
+
+        public boolean isRunning(){
+            return !isCanceled;
+        }
+
+        public int getTimeInMillis(){
+            return int_rowTime_display;
+        }
+
+        public void addTime(){
+            //when timer is paused or stopped isCanceled is set to true.
+            bln_addTime = true;
+        }
+    }//Runnable
+
+
+    /****************************************************************
+     *
+     * Runnable to get Interstitial from tappX
+     * RUNNABLE CALLED FROM AN OTHER RUNNABLE
+     *
+     * ***************************************************************/
+    private class TappxInterAd implements Runnable{
+        @Override
+        public void run() {
+            if(tappxInterAdIsCanceled){
+                tappxInterAd = null;
+            }else{
+                if(ad == 0) {
+                    final String TAPPX_KEY = "/120940746/Pub-9623-Android-3570";
+                    adInterstitial = com.tappx.TAPPXAdInterstitial.Configure(ActiviteCompteARebours.this, TAPPX_KEY,
+                        new AdListener() {
+                            @Override
+                            public void onAdClosed() {
+                                super.onAdClosed();
+                                ad++;
+                            }
+
+                            @Override
+                            public void onAdLoaded() {
+                                com.tappx.TAPPXAdInterstitial.Show(adInterstitial);
+                            }
+                        });
                 }
-            }
+                killRunnable();
+            }//else
+        }//run
 
-            handler.postDelayed(this, INTERVALLE);
+        public void killRunnable(){
+            tappxInterAdIsCanceled = true;
+            adInterstitial = null;
+        }//killRunnable
+    }//class interne prefsRunnable
 
-    }//run
-
-    public void killRunnable(){
-        //when timer is paused or stopped isCanceled is set to true.
-        isCanceled = true;
-    }
-
-    public int getTimeInMillis(){
-        return int_rowTime_display;
-    }
-
-    public void addTime(){
-        //when timer is paused or stopped isCanceled is set to true.
-        bln_addTime = true;
-    }
-}//Runnable
 
 
     /*******************************************************************************************************

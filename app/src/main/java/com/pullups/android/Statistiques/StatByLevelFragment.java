@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +37,7 @@ public class StatByLevelFragment extends Fragment {
     private ChartDataAdapter cda;
     private ArrayList<BarData> list;
     private ArrayList<String> titreGraph;
+    private WeakReference<RunDataBase> runDataBaseWeakReference;
     //private static dayFromDB jourdb;
     private JourEntrainementDB t;
     private TextView txtViewTitreNiveauGraphique;
@@ -58,8 +58,9 @@ public class StatByLevelFragment extends Fragment {
 
         //on appelle l'AsyncTask pour faire l'execution en Background
         //RunDataBase et une class interne
-        RunDataBase runDataBase = new RunDataBase(StatByLevelFragment.this, v.getContext());
-        runDataBase.execute();
+        setRetainInstance(true);
+        startRunDataBase();
+
 
         //nouvel objet ChartDataAdapter
         cda = new ChartDataAdapter(container.getContext(), list, titreGraph);
@@ -69,14 +70,26 @@ public class StatByLevelFragment extends Fragment {
     }//fin de la méthode OnCreate(Bundle savedInstanceState)
 
 
+    private void startRunDataBase(){
+        RunDataBase runDataBase = new RunDataBase(this, this.getContext());
+        this.runDataBaseWeakReference = new WeakReference<RunDataBase>(runDataBase);
+        runDataBase.execute();
+    }
+
+    private boolean isRunDataBasePendingOrRunning(){
+        return this.runDataBaseWeakReference != null
+            && this.runDataBaseWeakReference.get() != null
+            && !this.runDataBaseWeakReference.get().getStatus().equals(AsyncTask.Status.FINISHED);
+    }
+
     //class interne
     class RunDataBase extends AsyncTask<Context,Void,Integer[]> {
         //référence faible à l'activité
-        private WeakReference<StatByLevelFragment> mStats = null;
+        private WeakReference<StatByLevelFragment> fragmentWeakReference;
         Context context;
 
         public RunDataBase(StatByLevelFragment statsActivity, Context context){
-            link(statsActivity);
+            this.fragmentWeakReference = new WeakReference<>(statsActivity);
             this.context = context;
         }
 
@@ -109,67 +122,61 @@ public class StatByLevelFragment extends Fragment {
 
         @Override
         protected void onPostExecute (Integer[] result) {
-            if(result.length > 0){
+            super.onPostExecute(result);
+            if(this.fragmentWeakReference.get() != null) {
+                if (result.length > 0) {
+                    //On construit ici les graphiques par niveau
+                    //entries correspond aux valeurs des colonnes
+                    int k = 0;
+                    for (int i = 0; i < tab.length; i++) {
 
-                //On construit ici les graphiques par niveau
-                //entries correspond aux valeurs des colonnes
-                int l = 0;
-                for (int i = 0; i < tab.length; i++){
+                        ArrayList<BarEntry> entries = new ArrayList<BarEntry>();
+                        int indexOftabAllPullUp = 0;
+                        for (int j = 1; j < 7; j++) {
+                            //on ajoute la valeur en premier paramètre
+                            //on ajoute la colonne en second paramètre
+                            entries.add(new BarEntry(result[k], indexOftabAllPullUp));
+                            //on augemente l'index chauque fois que l'on rajoute un jour
+                            indexOftabAllPullUp++;
+                            k++;
+                        }//for j
 
-                    ArrayList<BarEntry> entries = new ArrayList<BarEntry>();
+                        //on ajoute le tableau de jour au niveau
+                        BarDataSet d = new BarDataSet(entries, context.getString(R.string.statsTotalDeTractions));
 
-                    int indexOftabAllPullUp = 0;
+                        //largeur de l'espacement entre les colonnes
+                        d.setBarSpacePercent(20f);
+                        //couleur du fond de la barre
+                        d.setBarShadowColor(Color.rgb(203, 203, 203));
 
-                    for( int j = 1; j < 7 ; j++){
-                        //on ajoute la valeur en premier paramètre
-                        //on ajoute la colonne en second paramètre
-                        entries.add(new BarEntry(result[l], indexOftabAllPullUp));
-                        //on augemente l'index chauque fois que l'on rajoute un jour
-                        indexOftabAllPullUp++;
+                        if (compteur == 1) {
+                            d.setColor(getResources().getColor(R.color.action_bar));
+                            compteur = 0;
+                        }//if
+                        else {
+                            d.setColor(getResources().getColor(R.color.bg));
+                            compteur = 1;
+                        }//else
 
-                        l++;
-                    }//for j
+                        ArrayList<BarDataSet> sets = new ArrayList<BarDataSet>();
+                        sets.add(d);
 
-                    //on ajoute le tableau de jour au niveau
-                    BarDataSet d = new BarDataSet(entries, context.getString(R.string.statsTotalDeTractions));
-
-                    //largeur de l'espacement entre les colonnes
-                    d.setBarSpacePercent(20f);
-                    //couleur du fond de la barre
-                    d.setBarShadowColor(Color.rgb(203, 203, 203));
-
-                    if(compteur == 1){
-                        d.setColor(getResources().getColor(R.color.action_bar));
-                        compteur = 0;
-                    }//if
-                    else{
-                        d.setColor(getResources().getColor(R.color.bg));
-                        compteur = 1;
-                    }//else
-
-                    ArrayList<BarDataSet> sets = new ArrayList<BarDataSet>();
-                    sets.add(d);
-
-                    //on ajoute le niveau au dessu du graph
-                    String titreDuGraphique = String.format(getResources().getString(R.string.displayLevelFormatComa),tab[i]);
-                    titreGraph.add(titreDuGraphique);
+                        //on ajoute le niveau au dessu du graph
+                        String titreDuGraphique = String.format(getResources().getString(R.string.displayLevelFormatComa), tab[i]);
+                        titreGraph.add(titreDuGraphique);
 
 
-                    BarData cd = new BarData(xValues, sets);
-                    //ajoute le graph à la listView
-                    list.add(cd);
-                    cda.notifyDataSetChanged();
-                }//for i
-            }//if
-            else{
-                Toast.makeText(this.context, R.string.erreurDansAffichageStatistiques, Toast.LENGTH_SHORT).show();
-            }//else
+                        BarData cd = new BarData(xValues, sets);
+                        //ajoute le graph à la listView
+                        list.add(cd);
+                        cda.notifyDataSetChanged();
+                    }//for i
+                }//if
+                else {
+                    Toast.makeText(this.context, R.string.erreurDansAffichageStatistiques, Toast.LENGTH_SHORT).show();
+                }//else
+            }
         }//onPostExecute
-
-        public void link(StatByLevelFragment statsActivity){
-            mStats = new WeakReference<>(statsActivity);
-        }
-
     }//class statique RunDataBAse
 
     public static StatByLevelFragment newInstance(String text) {

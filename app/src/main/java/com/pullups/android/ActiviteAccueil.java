@@ -13,7 +13,6 @@
 package com.pullups.android;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,10 +21,10 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Process;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,6 +34,8 @@ import com.pullups.android.Alarm.AlarmActivity;
 import com.pullups.android.Realm.JourEntrainementDB;
 import com.pullups.android.ResideMenu.ResideMenu;
 import com.pullups.android.ResideMenu.ResideMenuItem;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
 public class ActiviteAccueil extends Activity implements View.OnClickListener {
@@ -59,23 +60,26 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
     private final   String    str_NombreDeTractions       = "nombreDeTractions";
     private final   String    str_PremierChargement       = "premierChargement";
     private final   String    str_JourEnCours             = "jourEnCours";
+    private final   String    str_ad                      = "compteur_ad";
 
     private         int       int_totalDeTractions;
     private         int       jourEnCours                 = 1;
     private         int       pressed                     = 0;
+    private         int       ad                          = 0;
     private         int       int_nombreDeTractions;
+
     private         boolean   premierChargement;
     private         boolean   isCanceled                  = false;
     private         boolean   doubleBackExit;
     private         String    recordDeTractions;
 
     //object declaration
-    private prefsRunnable prefsRunnable;
+    private prefsRunnable     prefsRunnable;
     private Handler           handler;
 
     /* Reside Menu */
-    private ResideMenu resideMenu;
-    private ResideMenuItem itemAlarme;
+    private ResideMenu        resideMenu;
+    private ResideMenuItem    itemAlarme;
     private ResideMenuItem    itemAbout;
     private ResideMenuItem    itemRate;
     private ResideMenuItem    itemShare;
@@ -160,11 +164,10 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
         btnExercices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent activiteExercices = new Intent(getApplicationContext(), Exercices.class);
-                //activiteExercices.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                startActivity(activiteExercices);
-                finish();
-
+            Intent activiteExercices = new Intent(getApplicationContext(), Exercices.class);
+            //activiteExercices.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            startActivity(activiteExercices);
+            finish();
             }
         });
 
@@ -178,10 +181,10 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
         btnStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent ActiviteStatistiques = new Intent(getApplicationContext(), ActiviteStatistiques.class);
-                //ActiviteStatistiques.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                startActivity(ActiviteStatistiques);
-                finish();
+            Intent ActiviteStatistiques = new Intent(getApplicationContext(), ActiviteStatistiques.class);
+            //ActiviteStatistiques.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            startActivity(ActiviteStatistiques);
+            finish();
             }
         });
 
@@ -202,7 +205,7 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
         });
 
         //first run of the app
-        premierChargement = preferencesPartagees.getBoolean(str_PremierChargement, true);
+        //premierChargement = preferencesPartagees.getBoolean(str_PremierChargement, true);
 
     }//onCreate
 
@@ -292,13 +295,6 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
         }//action lors du click dans le menu sur "info"
         else if (view == itemAbout){
             /* Affichage de la boîte de dialogue pour l'info */
-            String dialogText = getString(R.string.niveauSelectionne);
-
-            final Dialog dialogInfo = new Dialog(ActiviteAccueil.this);
-            dialogInfo.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialogInfo.setContentView(R.layout.dialoginfo);
-
-            TextView texte = (TextView) dialogInfo.findViewById(R.id.txt_dialogInfo);
             String information = getString(R.string.information);
             String appVersion;
             try {
@@ -312,18 +308,12 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
                 appVersion = "!!!";
              }
 
-            texte.setText(information + appVersion);
-
-            Button btn_dialogInfo = (Button) dialogInfo.findViewById(R.id.btnOkForReminderDialog);
-            btn_dialogInfo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    dialogInfo.dismiss();
-                    dialogInfo.cancel();
-                }
-            });
-
-            dialogInfo.show(); //affichage de la dialogBox
+            //SweetAlertDialog Information
+            new SweetAlertDialog(this, SweetAlertDialog.NORMAL_TYPE)
+                    .setTitleText(getString(R.string.about))
+                    .setContentText(information + appVersion)
+                    .setConfirmText("OK")
+                    .show();
 
         }else if (view == itemRate){
             Uri uri = Uri.parse("market://details?id=" + getApplicationContext().getPackageName());
@@ -331,15 +321,14 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
             // To count with Play market backstack, After pressing back button,
             // to taken back to our application, we need to add following flags to intent.
             goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
-                    Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET |
-                    Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET |
+                Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
             try {
                 startActivity(goToMarket);
             } catch (ActivityNotFoundException e) {
                 startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("http://play.google.com/store/apps/details?id=" + getApplicationContext().getPackageName())));
+                    Uri.parse("http://play.google.com/store/apps/details?id=" + getApplicationContext().getPackageName())));
             }
-
         }else if (view == itemShare){
             String shareBody        = getString(R.string.shareText);
             Intent sharingIntent    = new Intent(android.content.Intent.ACTION_SEND);
@@ -348,46 +337,74 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
             sharingIntent.putExtra  (android.content.Intent.EXTRA_TEXT,       shareBody);
             startActivity           (Intent.createChooser(sharingIntent,      getResources().getString(R.string.share_using)));
         }else if (view == itemReset){
+            //sweetAlertDialog réinitialisation
+            new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                    .setTitleText(getString(R.string.deleteData))
+                    .setConfirmText(getString(R.string.validate))
+                    .setCancelText(getString(R.string.annuler))
+                    .setContentText(getString(R.string.reset_confirm))
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
 
-            SharedPreferences.Editor editor = getSharedPreferences(str_nomDesPreferences, MODE_PRIVATE).edit();
+                            //on réinitialise la base de donnée
+                            //actions à effectuer lors du reset de la base de donnée
+                            SharedPreferences.Editor editor = getSharedPreferences(str_nomDesPreferences, MODE_PRIVATE).edit();
+                            //Effacer la progression dans la base de données
+                            JourEntrainementDB t_db = new JourEntrainementDB(getApplicationContext());
+                            t_db.resetDataBase();
 
-            //Effacer la progression dans la base de données
-            JourEntrainementDB t_db = new JourEntrainementDB(getApplicationContext());
-            t_db.resetDataBase();
+                            //Restaurer les préférences partagées
+                            //Rechercher si les préférences contiennent
+                            if (preferencesPartagees.contains(str_JourEnCours)) {
+                                //met le premier jour à 0
+                                editor.putInt(str_JourEnCours, PREMIER_JOUR_D_ENTRAINEMENT);
+                            }//if
+                            if (preferencesPartagees.contains(str_TotalDeTractions)) {
+                                editor.putInt(str_TotalDeTractions, ZERO); //total de traction à ZERO
+                            }//if
+                            if (preferencesPartagees.contains(str_NombreDeTractions)) {
+                                //set nbrMaxTractions
+                                editor.putInt(str_NombreDeTractions, ZERO);
+                            }//if
+                            if (preferencesPartagees.contains(str_PremierChargement)) {
+                                //set premierChargement to true
+                                editor.putBoolean(str_PremierChargement, true);
+                            }
 
-            //Restaurer les préférences partagées
-            //Rechercher si les préférences contiennent
-            if (preferencesPartagees.contains(str_JourEnCours)){
-                //met le premier jour à 0
-                editor.putInt(str_JourEnCours,PREMIER_JOUR_D_ENTRAINEMENT);
-            }//if
-            if (preferencesPartagees.contains(str_TotalDeTractions)){
-                editor.putInt(str_TotalDeTractions, ZERO); //total de traction à ZERO
-            }//if
-            if(preferencesPartagees.contains(str_NombreDeTractions)){
-                //set nbrMaxTractions
-                editor.putInt(str_NombreDeTractions,ZERO);
-            }//if
-            if(preferencesPartagees.contains(str_PremierChargement)){
-                //set premierChargement to true
-                editor.putBoolean(str_PremierChargement, true);
-            }
+                            editor.apply();
 
-            editor.apply();
+                            //Recuperation des valeurs dans les preferences
+                            int_totalDeTractions  = preferencesPartagees.getInt(str_TotalDeTractions, ZERO);
+                            int_nombreDeTractions = preferencesPartagees.getInt(str_NombreDeTractions, ZERO);
+                            premierChargement     = preferencesPartagees.getBoolean(str_PremierChargement, true);
 
-            //Recuperation des valeurs dans les preferences
-            int_totalDeTractions    = preferencesPartagees.getInt       (str_TotalDeTractions,  ZERO);
-            int_nombreDeTractions   = preferencesPartagees.getInt       (str_NombreDeTractions, ZERO);
-            premierChargement       = preferencesPartagees.getBoolean   (str_PremierChargement, true);
+                            //Affichage
+                            /* TODO vérifier record Tractions */
+                            txtViewRecordTractions.setText(recordDeTractions);
+                            totalView.setText("" + int_totalDeTractions);
 
-            //Affichage
-            txtViewRecordTractions.setText(recordDeTractions );
-            totalView.setText("" + int_totalDeTractions);
-
-            //Annonce user reset is completed
-            Toast.makeText(getApplicationContext(),getResources().getString(R.string.reinitialisation),Toast.LENGTH_SHORT).show();
+                            //on affiche la dialog de confirmation
+                            sweetAlertDialog.changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+                            sweetAlertDialog.setTitleText(getString(R.string.rest))
+                                .setContentText(getString(R.string.succesfullreset))
+                                .setConfirmText("OK")
+                                .showCancelButton(false)
+                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                    @Override
+                                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                        sweetAlertDialog.dismiss();
+                                    }
+                                });
+                       }
+                    })
+                    .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            sweetAlertDialog.dismiss();
+                        }
+                    }).show();
         }
-
         resideMenu.closeMenu();
     }//onclick
 
@@ -400,33 +417,30 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
      ********************************************************************/
     @Override
     public void onBackPressed() {
-        String str_pressAgain = getResources().getString(R.string.pressAgain);
-        if(doubleBackExit){
-            //called to quit
-            super.onBackPressed();
-            int pid = android.os.Process.myPid();
-            android.os.Process.killProcess(pid);
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-            startActivity(intent);
-            finish();
-        }
 
-        this.doubleBackExit = true;
-        //display a Toast telling the user to press again if he wants to leave
-        if(pressed == ZERO) {
-            Toast.makeText(getApplicationContext(), str_pressAgain, Toast.LENGTH_SHORT).show();
-            pressed = 1;
-        }//if
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                doubleBackExit = false;
-                pressed = ZERO;
-            }
-        },DELAIS_ATTENTE);
-
+        //TODO implementer le retour avec des sweetAlertDialog
+        new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText(getString(R.string.str_LeaveApp))
+                .setContentText(getString(R.string.str_confimLeaveApp))
+                .setConfirmText(getString(R.string.validate))
+                .setCancelText(getString(R.string.annuler))
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                        sweetAlertDialog.dismiss();
+                    }
+                })
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                        Intent intent = new Intent(Intent.ACTION_MAIN);
+                        intent.addCategory(Intent.CATEGORY_HOME);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                        startActivity(intent);
+                        finish();
+                        Process.killProcess(Process.myPid());
+                    }
+                }).show();
     }//onBackPressed
 
     /********************************************************************
@@ -440,9 +454,6 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
 
         //Open a Preferences Editor to add the new values
         SharedPreferences.Editor editor = preferencesPartagees.edit();
-        if(premierChargement){
-            editor.putBoolean(str_PremierChargement, false);
-        }
 
         //applique les changements aux Preferences
         editor.putInt(str_NombreDeTractions, int_nombreDeTractions);
@@ -472,7 +483,6 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
         totalView.setBackgroundDrawable(null);
 
         resideMenu = null;
-
     }
 
 
@@ -513,6 +523,9 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
                     //Nombre de tracations max effectuées
                     int_nombreDeTractions = preferencesPartagees.getInt(str_NombreDeTractions,ZERO);
                 }//if
+                if(preferencesPartagees.contains(str_ad)){
+                    ad = preferencesPartagees.getInt(str_ad, ZERO);
+                }
 
                 //Change le total des tractions et le record de traction dans l'affichage
                 totalView.setText(""+int_totalDeTractions);
@@ -528,5 +541,4 @@ public class ActiviteAccueil extends Activity implements View.OnClickListener {
         }//killRunnable
 
     }//class interne prefsRunnable
-
 }//Activity ActiviteAccueil

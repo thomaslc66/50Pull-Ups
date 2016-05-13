@@ -1,7 +1,6 @@
 package com.pullups.android.Realm;
 
 import android.content.Context;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,14 +22,13 @@ public class JourEntrainementDB {
     //String  nombreDeTractions = "nombreDeTractions";
     String  totalDeTractions  = "totalDeTractions";
 
-    final int ZERO  = 0;
-    final int UN    = 1;
-    final int CINQ  = 5;
-    final int SIX   = 6;
-    final int SEPT  = 7;
+    static final int ZERO  = 0;
+    static final int UN    = 1;
+    static final int CINQ  = 5;
+    static final int SIX   = 6;
+    static final int SEPT  = 7;
 
     public JourEntrainementDB(Context context) {
-        mContext = context;
         realm    = Realm.getInstance(context);
     }
 
@@ -223,19 +221,16 @@ public class JourEntrainementDB {
         }
     }//remplirLaBaseDeDonnees
 
+    // Reinitialisation de la base de donnees
     public void resetDataBase() {
         try {
             realm.beginTransaction();
             RealmResults<JourEntainement> r = realm.where(JourEntainement.class).greaterThan(totalDeTractions, ZERO).findAll();
-            //Workaround Realm results see: https://github.com/realm/realm-java/issues/64ZERO
-
-            //Log.d("REALM", "Taille: " + r.size());
-            for (int i = ZERO; i < r.size(); i++) {
-                JourEntainement t = r.get(i);
-                //Log.w("JourEntrainement avant", "" + t.getTotalDeTractions());
-                t.setTotalDeTractions(ZERO);
-                //Log.w("JourEntrainement apres", "" + t.getTotalDeTractions());
+            //workaround from realm, iterate backward
+            for (int i = r.size()-1; i >= 0; i--) {
+                r.get(i).setTotalDeTractions(ZERO);
             }
+
             realm.commitTransaction();
         } catch (Exception e) {
             e.printStackTrace();

@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputFilter;
-//import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
@@ -20,6 +19,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+
+//import android.util.Log;
 
 
 public class ActiviteTest extends Activity {
@@ -91,13 +92,9 @@ public class ActiviteTest extends Activity {
                         editor.putInt(str_JourEnCours, trouverLeNiveauParRapportAuNombreDeTractions(int_nombreTractions));
                         //ajoute le nombre de traction maximum en 1 serie, qui correspondra alors au record
                         editor.putInt(str_NombreDeTractions, int_nombreTractions);
-                        //On applique les changements aux préférences de l'application
-                        editor.apply();
 
-                       //Log.w("DAY", "" + trouverLeNiveauParRapportAuNombreDeTractions(int_nombreTractions));
-
+                        //affichage du résultat
                         String niveauChoisi = String.format(getString(R.string.niveauSelectionne), flt_niveau);
-
                         SweetAlertDialog alertNiveau = new SweetAlertDialog(ActiviteTest.this, SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText(getString(R.string.congratulations))
                                 .setContentText(niveauChoisi)
@@ -116,6 +113,13 @@ public class ActiviteTest extends Activity {
                                     }
                                 });
                         alertNiveau.show();
+
+                        //l'utilisateur a fait le test -> premierChargment = false;
+                        editor.putBoolean(str_PremierChargement, false);
+
+                        //appliquer les changements aux preferences
+                        editor.apply();
+
                     }else{
                         /* if value is more than 50 */
                         Toast.makeText(ActiviteTest.this, getResources().getString(R.string.error_edtText_length), Toast.LENGTH_SHORT).show();

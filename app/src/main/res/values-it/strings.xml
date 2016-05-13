@@ -59,7 +59,7 @@
     <string name="vote">Dai una nota alla app </string>
     <string name="messageRepos">Fai almeno un giorno di riposo prima di riprendere l’allenamento</string>
     <string name="deleteData">Reset</string>
-    <string name="str_backToMain">Tocca nuovamente per tornare alla home. La tua progressione non verrà salvata</string>
+    <string name="str_backToMain">Convalidato per tornare. La tua progressione non verrà salvata</string>
     <string name="TitleLevel">"LIVELLO %1$.1f"</string>
     <string name="displayLevelFormatComa">LIVELLO %1$.1f"</string>
     <string name="displayLevelFormat">LIVELLO %1$.0f"</string>
@@ -95,4 +95,9 @@
     <string name="niveau_standard">Standard</string>
     <string name="niveau_avance">Avanzato</string>
     <string name="niveau_intermediaire">Intermediario</string>
+    <string name="reset_confirm">Ripristinare il database?</string>
+    <string name="succesfullreset">Database </string>
+    <string name="str_BackTitle">Lasciare l\'allenamento</string>
+    <string name="str_LeaveApp">Uscire?</string>
+    <string name="str_confimLeaveApp">Sicuro di voler uscire 50 Trazioni?</string>
 </resources>

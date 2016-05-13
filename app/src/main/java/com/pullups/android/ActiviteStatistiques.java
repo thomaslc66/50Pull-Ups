@@ -44,7 +44,6 @@ public class ActiviteStatistiques extends FragmentActivity {
         accueil.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(accueil);
         finish();
-
     }
 
     private class MyPagerAdapter extends FragmentPagerAdapter implements IconPagerAdapter {

@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.pullups.android.Realm.JourEntainement;
 import com.pullups.android.Realm.JourEntrainementDB;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -350,30 +351,11 @@ public class ActiviteAvantEntrainement extends Activity {
     ********************************************************************/
     @Override
     public void onBackPressed(){
-        //lors du premier passage doubleBackExit vaut false
-        //c'est lors du second passage qu'il vaudra true et ce qui est dans le if
-        //sera alors effectué
-        if(doubleBackExit){
-            //called to quit
-            Intent accueil = new Intent(this, ActiviteAccueil.class);
-            accueil.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            startActivity(accueil);
-            finish();
-        }
-
-        //après le premier passage dans la boucle on change la valeur de doubleBackExit
-        this.doubleBackExit = true;
-
-        //display a Toast telling the user to press again if he wants to leave
-        String str_backToMain = getResources().getString(R.string.str_backToMain);
-        Toast.makeText(this,str_backToMain, Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                doubleBackExit = false;
-            }
-        },DELAIS_ATTENTE);
+        //Retour en arrière simple. L'utilisateur a déjà été averti de la perte de progression
+        Intent accueil = new Intent(this, ActiviteAccueil.class);
+        accueil.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(accueil);
+        finish();
     }//onBackPressed
 
 

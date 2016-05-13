@@ -47,7 +47,7 @@
     <string name="stats_by_day">Statistics by day</string>
     <string name="stats_by_level">Statistics by level</string>
     <string name="stats_label">Statistics</string>
-    <string name="str_backToMain">Press again to get back to home. Progression will be lost</string>
+    <string name="str_backToMain">Validate to get back. Progression will be lost</string>
     <string name="exercices_label">Exercices</string>
     <string name="vote">Rate the app</string>
     <string name="validate">Validate</string>
@@ -95,4 +95,9 @@
     <string name="niveau_standard">Standard</string>
     <string name="niveau_avance">Advanced</string>
     <string name="niveau_intermediaire">Intermediate</string>
+    <string name="succesfullreset">Programm reseted succefuly</string>
+    <string name="reset_confirm">Do you really want to reset all the data?</string>
+    <string name="str_BackTitle">Leave/Stop training</string>
+    <string name="str_LeaveApp">Leave application?</string>
+    <string name="str_confimLeaveApp">Are you sure do you want to leave 50 Pullups</string>
 </resources>
