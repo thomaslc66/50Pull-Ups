@@ -65,6 +65,10 @@ public class ChartDataAdapter extends ArrayAdapter<BarData> {
         holder.chart.setDescription("");
         holder.chart.setDrawGridBackground(false);
         holder.chart.setDrawBarShadow(true);
+        //Desactiver le zoom sur les graphiques
+        holder.chart.setDoubleTapToZoomEnabled(false);
+        holder.chart.setScaleEnabled(false);
+        //Change la couleur du texte
         data.setValueTextColor(Color.WHITE);
         //titre du niveau
         holder.titreGraph.setText(title.get(position));

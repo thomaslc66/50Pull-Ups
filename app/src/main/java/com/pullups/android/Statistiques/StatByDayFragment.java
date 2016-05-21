@@ -59,6 +59,9 @@ public class StatByDayFragment extends Fragment {
         chart.setDescription("");
         chart.setDrawGridBackground(false);
         chart.setDrawBarShadow(true);
+        //Desactiver le zoom sur les graphiques
+        chart.setDoubleTapToZoomEnabled(false);
+        chart.setScaleEnabled(false);
 
         XAxis xAxis = chart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);

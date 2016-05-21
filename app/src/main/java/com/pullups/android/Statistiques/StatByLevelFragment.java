@@ -149,6 +149,7 @@ public class StatByLevelFragment extends Fragment {
                         //couleur du fond de la barre
                         d.setBarShadowColor(Color.rgb(203, 203, 203));
 
+
                         if (compteur == 1) {
                             d.setColor(getResources().getColor(R.color.action_bar));
                             compteur = 0;
@@ -168,6 +169,7 @@ public class StatByLevelFragment extends Fragment {
 
                         BarData cd = new BarData(xValues, sets);
                         //ajoute le graph à la listView
+
                         list.add(cd);
                         cda.notifyDataSetChanged();
                     }//for i
